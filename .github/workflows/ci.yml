@@ -28,7 +28,6 @@ jobs:
           --health-timeout 5s
           --health-retries 20
     env:
-    env:
       NEXUS_ENV: development
       NEXUS_DATABASE_URL: postgres://nexus:nexus@127.0.0.1:5432/nexus_backend_test?sslmode=disable
       NEXUS_TEST_DATABASE_URL: postgres://nexus:nexus@127.0.0.1:5432/nexus_backend_test?sslmode=disable
@@ -37,6 +36,7 @@ jobs:
       NEXUS_ENCRYPTION_KEY: Y2ktb25seS1lbmMta2V5LW5vdC1mb3ItcHJvZHVjdGlvbi0wMDA=
       NEXUS_LOOKUP_KEY: Y2ktb25seS1sb29rdXAta2V5LW5vdC1mb3ItcHJvZHVjdGlvbi0wMA==
     defaults:
+
       run:
         working-directory: backend-go
     steps:
