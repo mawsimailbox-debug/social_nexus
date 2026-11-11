@@ -1,0 +1,5 @@
+{
+  "source": "backend-go/openapi.yaml",
+  "sha256": "68d2d5e6e10de4025dcb52b291dd60aa9bbf1d40fc4fc3a4ee40a69882716837",
+  "status": "Read-only snapshot; refresh after Go changes. Runtime integration not verified."
+}

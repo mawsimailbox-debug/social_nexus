@@ -1,0 +1,24 @@
+name: Nexus release preflight (packaging disabled)
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  release-gates:
+    runs-on: [self-hosted, nexus-release-trusted]
+    environment: release-approval
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0, persist-credentials: false}
+      - run: python3 ci/check-pins.py --runtime
+      - name: Verify protected externally provisioned evidence
+        env:
+          NEXUS_RELEASE_TRUST_POLICY: ${{ vars.NEXUS_RELEASE_TRUST_POLICY }}
+          NEXUS_EVIDENCE_DIR: ${{ vars.NEXUS_EVIDENCE_DIR }}
+        run: |
+          test -n "$NEXUS_RELEASE_TRUST_POLICY"
+          test -n "$NEXUS_EVIDENCE_DIR"
+          bash scripts/release.sh --evidence "$NEXUS_EVIDENCE_DIR"
+# No artifact upload, tag creation, release publishing or deployment permission.

@@ -1,0 +1,6 @@
+.git
+*.out
+*.log
+coverage*
+.env*
+testdata/postgres

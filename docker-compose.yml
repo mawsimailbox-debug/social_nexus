@@ -1,0 +1,88 @@
+name: nexus
+services:
+  postgres:
+    image: ${NEXUS_POSTGRES_IMAGE:?Required approved PostgreSQL 16 image}
+    environment:
+      POSTGRES_DB: ${NEXUS_POSTGRES_DB:?Required}
+      POSTGRES_USER: ${NEXUS_POSTGRES_USER:?Required}
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets: [postgres_password]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+    networks: [data]
+    security_opt: [no-new-privileges:true]
+  redis:
+    image: ${NEXUS_REDIS_IMAGE:?Required approved Redis 7 image}
+    command: [redis-server, /usr/local/etc/redis/redis.conf]
+    secrets: [redis_acl]
+    configs:
+      - source: redis_config
+        target: /usr/local/etc/redis/redis.conf
+    volumes: [redis_data:/data]
+    healthcheck:
+      # A dedicated health ACL user permits PING only, not data access.
+      test: [CMD-SHELL, 'redis-cli --user health PING | grep -qx PONG']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks: [data]
+    security_opt: [no-new-privileges:true]
+  api:
+    image: ${NEXUS_API_IMAGE:?Required local or approved image reference}
+    build:
+      context: .
+      dockerfile: ci/api.Dockerfile
+      args:
+        GO_IMAGE: ${NEXUS_GO_IMAGE:?Required approved Go image}
+        RUNTIME_IMAGE: ${NEXUS_RUNTIME_IMAGE:?Required approved Alpine image}
+    environment:
+      NEXUS_ENV: ${NEXUS_ENV:?Required}
+      NEXUS_ADDR: :8080
+      NEXUS_DATABASE_URL_FILE: /run/secrets/database_url
+      NEXUS_REDIS_URL_FILE: /run/secrets/redis_url
+      NEXUS_JWT_KEY_FILE: /run/secrets/jwt_key
+      NEXUS_ENCRYPTION_KEY_FILE: /run/secrets/encryption_key
+      NEXUS_LOOKUP_KEY_FILE: /run/secrets/lookup_key
+      NEXUS_SENDGRID_API_KEY_FILE: /run/secrets/sendgrid_api_key
+      NEXUS_EMAIL_FROM: ${NEXUS_EMAIL_FROM:?Required verified sender}
+    secrets: [database_url, redis_url, jwt_key, encryption_key, lookup_key, sendgrid_api_key]
+    ports: ['127.0.0.1:8080:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, 'http://127.0.0.1:8080/readyz']
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 15s
+    read_only: true
+    tmpfs: [/tmp:size=16m,noexec,nosuid]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+    networks: [data, edge]
+volumes:
+  postgres_data:
+  redis_data:
+networks:
+  data: {internal: true}
+  edge: {}
+configs:
+  redis_config: {file: ./ci/redis.conf}
+secrets:
+  postgres_password: {file: '${NEXUS_POSTGRES_PASSWORD_FILE:?Required}'}
+  database_url: {file: '${NEXUS_DATABASE_URL_FILE:?Required}'}
+  redis_acl: {file: '${NEXUS_REDIS_ACL_FILE:?Required}'}
+  redis_url: {file: '${NEXUS_REDIS_URL_FILE:?Required}'}
+  jwt_key: {file: '${NEXUS_JWT_KEY_FILE:?Required}'}
+  encryption_key: {file: '${NEXUS_ENCRYPTION_KEY_FILE:?Required}'}
+  lookup_key: {file: '${NEXUS_LOOKUP_KEY_FILE:?Required}'}
+  sendgrid_api_key: {file: '${NEXUS_SENDGRID_API_KEY_FILE:?Required}'}

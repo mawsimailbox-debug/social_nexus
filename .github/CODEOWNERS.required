@@ -1,0 +1,5 @@
+# Not active until real GitHub handles are supplied and reviewed.
+# Required mappings: /backend-go backend owner; /app-flutter mobile owner;
+# /design designer + QA; /ci /.github /scripts operations + security;
+# /docs team lead. Auth/security changes require 3 actual approvals.
+# Do not replace identities with fictional handles.

@@ -1,0 +1,32 @@
+{
+  "source_hashes_unchanged": true,
+  "photo_hash_unchanged": true,
+  "all_widget_files_at_most_200_lines": true,
+  "widget_files": {
+    "lib/presentation/screens/home_shell.dart": 97,
+    "lib/presentation/screens/auth_screen.dart": 132,
+    "lib/presentation/screens/shop_screen.dart": 133,
+    "lib/presentation/screens/chat_screen.dart": 153,
+    "lib/presentation/screens/profile_screen.dart": 181,
+    "lib/presentation/screens/discover_screen.dart": 127,
+    "lib/presentation/screens/group_screen.dart": 137,
+    "lib/presentation/screens/feed_screen.dart": 96,
+    "lib/presentation/widgets/share_sheet.dart": 107,
+    "lib/presentation/widgets/composer_sheet.dart": 109,
+    "lib/presentation/widgets/comments_sheet.dart": 81,
+    "lib/presentation/widgets/post_actions.dart": 91,
+    "lib/presentation/widgets/sheets.dart": 26,
+    "lib/presentation/widgets/post_card.dart": 193,
+    "lib/presentation/widgets/common.dart": 151,
+    "lib/presentation/widgets/shop_content.dart": 126,
+    "lib/presentation/widgets/profile_grid.dart": 79,
+    "lib/presentation/widgets/notifications.dart": 75
+  },
+  "openapi_internal_refs_valid": true,
+  "openapi_paths": 31,
+  "coverage_all_reported_files": {
+    "hit": 1072,
+    "total": 1542,
+    "percent": 69.52
+  }
+}

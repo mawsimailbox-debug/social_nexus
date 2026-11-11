@@ -1,0 +1,12 @@
+.git
+.env*
+secrets
+evidence
+backups
+dist
+**/build
+**/.dart_tool
+app-flutter
+*.zip
+*.key
+*.pem

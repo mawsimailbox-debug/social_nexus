@@ -1,0 +1,82 @@
+{
+  "group": {
+    "id": 601,
+    "kind": "group",
+    "name": "Backend Runners",
+    "body": "Run together",
+    "visibility": "public",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "incoming": {
+    "id": 301,
+    "kind": "message",
+    "author_id": "other-account",
+    "parent_id": 201,
+    "body": "Incoming",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "notification": {
+    "id": 801,
+    "actor_id": "other-account",
+    "item_id": 101,
+    "kind": "share",
+    "read": false,
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "outgoing": {
+    "id": 302,
+    "kind": "message",
+    "author_id": "owner-account",
+    "parent_id": 201,
+    "body": "Outgoing",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "person": {
+    "id": 701,
+    "kind": "person",
+    "author_id": "public-user-id",
+    "name": "Public Person",
+    "body": "Photography",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "post": {
+    "id": 101,
+    "kind": "post",
+    "author_id": "owner-account",
+    "name": "Lake update",
+    "body": "Backend body",
+    "visibility": "public",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "product": {
+    "id": 501,
+    "kind": "product",
+    "parent_id": 401,
+    "name": "Coffee",
+    "price_minor": 4200,
+    "currency": "MMK",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "profile": {
+    "id": "owner-account",
+    "email_verified": true,
+    "name": "Account Owner",
+    "bio": "Existing bio"
+  },
+  "shop": {
+    "id": 401,
+    "kind": "shop",
+    "name": "Backend Coffee",
+    "body": "Cafe from server",
+    "visibility": "public",
+    "created_at": "2026-11-09T00:00:00Z"
+  },
+  "thread": {
+    "id": 201,
+    "kind": "thread",
+    "author_id": "owner-account",
+    "name": "Real chat",
+    "visibility": "private",
+    "created_at": "2026-11-09T00:00:00Z"
+  }
+}

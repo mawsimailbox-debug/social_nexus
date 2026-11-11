@@ -1,0 +1,11 @@
+{
+  "status": "UPSTREAM_REFS_RESOLVED_NOT_TEAM_APPROVAL",
+  "observed_utc": "2026-11-10T06:01:47.308870+00:00",
+  "method": "GitHub git ref API plus commit API; commit dates before 2026-11-09; upstream verification.verified true. This is not Nexus release sign-off.",
+  "pins": {
+    "actions/checkout@v4": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+    "actions/setup-go@v5": "actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff",
+    "actions/upload-artifact@v4": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+    "subosito/flutter-action@v2": "subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2"
+  }
+}

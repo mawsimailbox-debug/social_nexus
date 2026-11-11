@@ -1,0 +1,274 @@
+# Supplied guide extraction
+
+Source: nexus-guide.docx; extracted via python-docx.
+This is source text, not release acceptance or proof of implementation.
+
+Nexus — Social Suite (Business & Community)
+
+Project Production Ready ZIP File တည်ဆောက်ရေး လုပ်ငန်းစဉ် လမ်းညွှန်
+
+Document ID: NEX-PRD-ZIP-001 | Version: 1.0 | Date: 2026-11-09 | Owner: Nexus Developer Team Lead
+
+မိတ်ဆက် — ဤလမ်းညွှန်သည် Social Suite v1 မှ v3 အထိ အတည်ပြုပြီးသား စနစ်များ (Feed / Chat / Profile / Discover / Business(Shop) / Group + Device ID Login + Gmail Recovery) အားလုံးကို အခြေခံ၍ Nexus App ကို ၂၀၂၆ စံနှုန်း premium quality၊ User အများအပြား ခံနိုင်ရည်ရှိသော Live App အဖြစ် တည်ဆောက်ပြီး Project Production Ready ZIP အဖြစ် ပာက်လုပ် အပ်နှံရန် Developer အဖွဲ့ လိုက်နာဆောင်ရွက်ရမည့် လုပ်ငန်းစဉ်များ ဖြစ်သည်။
+
+အဓိက သတ်မှတ်ချက်: ထုတ်ပေးမည့် ZIP file တိုင်းတွင် Social Suite v3 — Business & Community HTML file (design reference) ကို အတူတွဲ ပေးပို့ရမည်။ HTML သည် UI/UX တိကျမှု အတိုင်းအတာ (source of truth) ဖြစ်ပြီး code ရေးသူ အားလုံးသည် HTML ၌ ပါဝင်သော token၊ layout၊ content အတိုင်း ပြောင်းလဲ မကူးယူ ရေးရမည်။
+
+
+
+၁။ Nexus Project Production Ready Grade — Target အဓိပ္ပာယ်ဖွင့်
+
+ZIP file တစ်ခုကို "Production Ready" ဟု အတည်ပြုခံရရန် အောက်ပါ အရည်အသွေး အဆင့် (Grade) များပြည့်မီရမည် —
+
+| Grade | အနံ/အမည် | လိုအပ်ချက် |
+| --- | --- | --- |
+| G1 | Build Green | main branch ၌ CI pipeline အားလုံး အောင် (build + test + lint)။ Error 0 |
+| G2 | Runs From ZIP | လူသစ်တစ်ဦးက ZIP ကို ဖွပြီး README အတိုင်း ၃၀ မိနစ်အတွင်း local တွင် app run မြင်ရ |
+| G3 | Auth Complete | Device ID login (200) + Gmail recovery (202 flow) အစစ်အမှန် အလုပ်လုပ်၊ SMS OTP လုံးဝဖယ်ရှားပြီး |
+| G4 | 2026 UI Parity | Flutter screen များသည် Social Suite v3 HTML နှင့် token/spacing/content တစ်ပြေးညီ (design QA sign-off) |
+| G5 | Test Coverage | Backend ≥70%၊ auth/recovery paths 100%၊ critical journey E2E tests pass |
+| G6 | Deploy Configs Complete | Docker/Compose၊ GitHub Actions CI/CD၊ store metadata၊ Terraform/manual infra script ပါဝင် |
+| G7 | Security Clean | SAST/DAST scan အနီ 0၊ secrets လုံးဝမပါ၊ OWASP Top 10 စစ်ဆေးချက် ပြည့် |
+| G8 | Docs Bundle | README၊ API spec (OpenAPI)၊ ERD၊ runbook၊ CHANGELOG၊ LICENSE ပါဝင် |
+
+ 
+
+၁.၁ ZIP file အတွင်း ပါဝင်ရမည့် ပုံသေ တည်ဆောက်ပုံ (Repo Structure)
+
+| လမ်းကြောင်း | ပါဝင်ရမည့် အရာ |
+| --- | --- |
+| / (root) | README.md၊ CHANGELOG.md၊ LICENSE၊ .gitignore၊ docker-compose.yml၊ .env.example |
+| /app-flutter | Flutter project (pubspec.yaml၊ lib/၊ test/၊ integration_test/၊ android/၊ ios/) |
+| /backend-go | Go module (cmd/api/၊ internal/...၊ migrations/၊ openapi.yaml) |
+| /design | Social Suite v3 — Business & Community.html (မပြင်ဆင်ရ၊ reference သီးသန့်)၊ tokens.css၊ flow diagrams |
+| /ci | GitHub Actions workflows (ci.yml၊ release.yml)၊ CD/infra script များ |
+| /docs | PRD၊ SAD/C4၊ ERD၊ Test Plan၊ UAT report၊ Runbook၊ Release Notes |
+| /scripts | seed.sh၊ backup.sh၊ rollback.sh၊ healthcheck.sh |
+| /qa | test data fixtures၊ JMeter/k6 scripts၊ ZAP reports |
+
+ 
+
+မည်သို့ သိမ်းမည်: ZIP အမည် = `Nexus-<semver>-rc<n>-<YYYYMMDD>.zip` (ဥပမာ Nexus-1.0.0-rc3-20261109.zip)။ Git tag `v<semver>` နှင့် commit SHA ကို ZIP အတွင်း `/docs/BUILD_MANIFEST.txt` ၌ ရေးထားရမည်။PAGEBREAK
+
+၂။ လုပ်ငန်းစဉ် အဓိက (၅) ခု — Error မရှိအောင် ပြင်ဆင်တည်ဆောက်ရန် ညွှန်ကြားချက်
+
+၂.၁ Version Control (Git/GitHub) အသုံးပြုခြင်း
+
+Monorepo တစ်ခုတည်း: /app-flutter + /backend-go + /design + /docs အားလုံးကို GitHub private repo `nexus-app` တွင် ထားသည်။ ZIP ထုတ်သည့်အခါ repo ထဲမှ git-clean version ကို zip ရသည်။
+
+| စည်းမျဉ်း | အသေးစိတ် |
+| --- | --- |
+| Trunk-based | main သည် always-deployable။ feature branch = feat/<jira-id>-<desc>၊ fix/<id>၊ chore/<desc>။ branch အသက် ≤ ၃ ရက် |
+| Conventional Commits | feat: / fix: / perf: / refactor: / test: / docs: / ci: / chore: — subject ≤ 72 စာ၊ body တွင် "why" ရေး |
+| PR Rules | PR တစ်ခု ≤ 400 lines diff။ PR မိတ္တူ template (What/Why/Test/Screen recording)။ CI green + review 2 ယောက် (auth/security touch = 3) မပါ main သို့ merge မရ |
+| Merge | squash-merge သာ။ merge commit history ရှင်းထား။ tag = v1.2.3 (semver)၊ release notes tag နှင့်အတူ |
+| Protections | main: force-push ပိတ်၊ deletion ပိတ်၊ required checks = lint/test/build/security။ secret scanning + push protection ON |
+
+ 
+
+ZIP အတွင်း Git စစ်ဆေးချက်: `git status` clean ၊ `git log --oneline -20` တွင် Conventional format လိုက်၊ `.git/` folder မပါ (source zip သာ)၊ commit SHA = BUILD_MANIFEST.txt ၏ SHA။
+
+၂.၂ Agile/Scrum Methodology ဖြင့် အလုပ်လုပ်ခြင်း
+
+| Artifact | သတ်မှတ်ချက် |
+| --- | --- |
+| Sprint | ၂ သီတင်း။ Goal တစ်ခုစီ (ဥပမာ S1=auth device login၊ S2=email recovery၊ S3=feed/chat parity) |
+| Board | GitHub Projects: Backlog → Ready → In Progress → In Review → QA → Done။ WIP limit: dev ၂ ဦးလျှင် ၃ card |
+| Ceremonies | Planning (Sprint goal + estimate story points Fibo)၊ Daily 15m၊ Review (demo on device)၊ Retro (action item ≤ 3) |
+| Definition of Ready | AC ရှင်း + design link (HTML anchor) + API contract ရှိမှ sprint ထဲသွင်း |
+| Definition of Done | code + tests + review approved + demo + docs update ပြီးမှ Done |
+| Backlog | PRD from All-in-One doc C-01 → epics (Auth/Feed/Chat/Business/Group/Infra) → stories။ Priority MoSCoW |
+
+ 
+
+၂.၃ Coding Standard လိုက်နာခြင်း
+
+| Area | Standard |
+| --- | --- |
+| Go | gofmt + goimports mandatory; names: camelCase / unexported; errors wrapped with `fmt.Errorf("...: %w", err)`; context as first param in every layer; no global mutable state; `internal/` module boundaries; `golangci-lint` config committed in repo |
+| Flutter/Dart | `dart format` + `flutter analyze` zero warning; layered: presentation/domain/data; Riverpod (or Bloc) state mgmt; `freezed` immutable models; widget <= 200 lines; no business logic in widget |
+| API contract | openapi.yaml (backend-go/openapi.yaml) = single source; mock-first: frontend uses generated clients; Breaking change = RFC + version bump /v2 |
+| Naming/Files | kebab-case files; test colocated as `*_test.go` / `*_test.dart`; DB snake_case; env vars UPPERCASE NEXUS_* |
+| Quality gates | golangci-lint + staticcheck + dart analyze all CI-block; complexity: cyclomatic <= 15; duplication <= 3% (jscpd) |
+| Logging | structured JSON (slog/zap); fields: request_id, user hash, latency; PII mask; log level: prod=info |
+
+ 
+
+၂.၄ API Integration ပြုလုပ်ခြင်း
+
+| Endpoint | Method | Contract (Social Suite v3 confirmed systems + new auth) |
+| --- | --- | --- |
+| /api/v1/auth/device-login | POST | {device_id, phone_number} → 200 {jwt, refresh} / 202 {action:"REQUIRE_EMAIL_VERIFICATION"} |
+| /api/v1/auth/email-verify | POST | {phone_number, email} -> 202 OTP/Magic link sent via SendGrid/SES (60s rate limit) |
+| /api/v1/auth/otp/confirm | POST | {otp, device_id} -> 200 jwt + DB updates device_id |
+| /api/v1/auth/register | POST | {phone_number, device_id, email} — email mandatory |
+| /api/v1/feed, /chat/threads, /users/me, /discover, /shops/:id, /groups/:id | GET/POST | data structures confirmed in v1-v3 HTML (posts, comments, messages, products, members) -> DTO |
+
+ 
+
+Integration rules: JWT Bearer + refresh rotation; request_id generated per request and propagated; timeout 5s client / 10s server; retry: GET only, exponential backoff 2x; rate limit per device (nginx/redis); all list endpoints = cursor pagination; static data in HTML prototype -> seed.sql fixtures, frontend mock adapter uses the same interface as real API.
+
+၂.၅ Regular Code Review ပြုလုပ်ခြင်း
+
+| Rule | Detail |
+| --- | --- |
+| SLA | PR တင် 24h အတွင်း first review; reviewer round ≤ 2 ကြိမ် over 48h = escalation |
+| Checklist | correct? tested? secure (no secrets, input validation, SQLi/XSS)? performance (N+1, indexes)? readable naming? matches openapi contract? parity with HTML design for UI PRs? |
+| Roles | 1 peer + 1 module owner (auth PR = security owner required) |
+| Culture | comment = non-personal; "nit:" prefix = optional; blocking = "must:" + reason |
+| Automation | CI runs first (lint/test/build/secrets/SAST); human review starts only after CI green |
+
+ 
+
+
+
+၃။ စမ်းသပ်စစ်ဆေးခြင်း (Testing) — Quality Assurance
+
+၃.၁ Unit Testing
+
+Backend Go: `go test ./... -race -cover`; auth service test cases: device match/mismatch, unknown device → 202, OTP wrong/expired/used, device_id update atomic, email uniqueness, rate limit, JWT expiry/rotation, email format. Flutter: widget test login 200→Home, 202→Email screen, signup email validation; pure logic tests. Coverage: backend ≥ 70%, auth/recovery 100%; CI gate: coverage drop = block merge.
+
+၃.၂ Integration Testing
+
+Go: `testcontainers-go` (PostgreSQL + Redis); httpapi tests use real router + httptest: register -> device-login -> email-verify -> confirm -> new-device login success chain; contract tests: Pact/openapi validator frontend<->backend; DB migration test: up/down reversible (golang-migrate).
+
+၃.၃ User Acceptance Testing (UAT)
+
+Internal UAT: PM + QA + 5-10 beta users; scenarios = all interaction paths in HTML v3 + auth 2 flows; UAT scripts = C-19 (All-in-One doc); exit: High/Med bug 0, Medium <= 5 with workaround; sign-off doc = UAT-SIGNOFF.pdf stored in ZIP /docs.
+
+၃.၄ Performance Testing
+
+| Target | Threshold | Tool |
+| --- | --- | --- |
+| device-login p95 | ≤ 150ms | k6/JMeter |
+| email-verify p95 | ≤ 400ms (excluding SMTP latency) | k6 |
+| feed p95 | ≤ 300ms @ 1k RPS | k6 |
+| app cold start | ≤ 2s mid device | Flutter profile mode |
+| soak | 12h @ 60% peak, leak မရှိ | k6 + Prometheus |
+
+ 
+
+Load model: v1-v3 user growth forecast 10k DAU baseline; DB: pgbench indexes EXPLAIN; CI perf gate: p95 degradation > 20% = fail.
+
+၃.၅ Security Testing
+
+| Check | Detail |
+| --- | --- |
+| SAST | gosec + staticcheck + Semgrep + dart security lint (CI block) |
+| Secrets | gitleaks/Husky pre-commit + GitHub push protection |
+| DAST | OWASP ZAP baseline against staging; auth endpoints active scan |
+| Auth threat model | device_id enumeration -> mitigated by phone+email dual check; OTP brute force -> rate limit + lockout; MITM -> TLS1.2+, cert pinning in flutter; JWT alg confusion -> HS256 fixed in lib |
+| Dependency | Dependabot + `govulncheck` + `cargo-audit`  equivalents monthly |
+| Data | email/phone column encryption (pgcrypto app-layer); GDPR-style deletion endpoint; backup encrypted AES-256 |
+
+ 
+
+၄။ ဖြန့်ချိခြင်း (Deployment) — Launch
+
+၄.၁ CI/CD Pipeline သတ်မှတ်ခြင်း (GitHub Actions)
+
+| Stage | Job | Gate |
+| --- | --- | --- |
+| 1 lint+test | gofmt/golangci-lint, flutter analyze, dart format --set-exit-if-changed, unit tests + coverage | fail = block PR |
+| 2 build | go build linux/amd64 (static) + flutter build appbundle/apk + ipa (macos runner) | artifact stored 30 days |
+| 3 security | gitleaks + gosec + ZAP baseline + SBOM (syft) generated | critical finding = block release |
+| 4 staging deploy | docker push registry → compose pull up → smoke test (auth 3 endpoints) | smoke fail = auto rollback |
+| 5 release zip | run SOP in section 6 -> GitHub Release with Nexus-x.y.z.zip + Social Suite v3 HTML attached | manual approval (team lead) |
+| 6 prod deploy | blue-green: v2 shadow -> canary 5% -> 25% -> 100%; SLO monitoring (5xx, p95, crash) | any metric worsening > threshold = auto rollback |
+
+ 
+
+၄.၂ Server Deployment
+
+| Item | Spec |
+| --- | --- |
+| Runtime | Docker: api (golang:1.22-alpine) + postgres:16 + redis:7; docker-compose.yml (repo root) = single-command start version kept in ZIP; prod = same images orchestrated (ECS/Fly.io/Railway/VPS; secrets in secret manager only, never in .env files) |
+| TLS | Let's Encrypt/ALB; HSTS; TLS ≥1.2; cert auto-renew |
+| Backup | PG daily pg_dump → offsite (7 day retention) + WAL; restore drill quarterly |
+| Observability | Prometheus + Grafana + Loki; alerts: 5xx>1%, p95>500ms, disk>80%, email fail>5% |
+
+ 
+
+၄.၃ App Store / Play Store သို့ တင်ခြင်း
+
+| Item | Detail |
+| --- | --- |
+| Play | internal testing track → closed (20 testers) → open → production; AAB; data safety form: email/phone/device_id declare လုပ်; signature upload key |
+| App Store | TestFlight external 30 users (7 days minimum real use) -> Review; privacy policy URL + nutrition labels; device_id = "Device ID" data type declared |
+| Store metadata | screenshots must be real-device 2026 light theme (no dark leftovers); description includes "account recovery via email" |
+
+ 
+
+၄.၄ Beta Testing
+
+Firebase App Distribution (Android QA build) + TestFlight (iOS); beta feedback via in-app feedback + Firebase Crashlytics; beta crash-free >= 99.5% required before store submission.
+
+
+
+၅။ ထိန်းသိမ်းခြင်း (Maintenance) — Post-Launch Support
+
+| Process | Rule |
+| --- | --- |
+| Bug Fix | triage 24h; S0 crash/lockout: hotfix SLA 4h -> canary -> 100% full rollout; S1: current sprint; S2/S3 backlog; every fix = regression test added |
+| Update | patch = bi-weekly release windows; feature = sprint end tag; update policy: security = mandatory, others = soft in-app prompt |
+| User Feedback | in-app "Feedback" (Profile screen) + store reviews + Play Console ANR dashboard; weekly digest -> PM backlog grooming |
+| Analytics | Firebase / self-hosted PostHog; KPI: D1/D7 retention, login 200 vs 202 ratio (device match rate), recovery success rate, feed engagement; monthly report = All-in-One doc F-08 |
+| Security Patch | Dependabot critical dependency updates merge within 7 days; CVE emergency = hotfix flow; key/cert rotation quarterly; email provider health weekly report (bounce/spam rate) |
+| Data ops | weekly vacuum/analyze; slow query top10 review; capacity forecast (user growth vs DB size) |
+
+ 
+
+
+
+၆။ ZIP ထုတ်ပေးခြင်း Standard Operating Procedure (SOP)
+
+Trigger: release tag v<x.y.z> တင်ပြီး၊ all G1–G8 gates green။
+
+| Step | လုပ်ဆောင်ချက် | အတည်ပြုချက် |
+| --- | --- | --- |
+| 1 | `git clone` fresh + `git checkout v<x.y.z>` + `git verify-tag` | SHA မှတ် |
+| 2 | secrets check: `.env`/keys 0 found, `gitleaks detect` pass | log saved |
+| 3 | on fresh clone follow README: compose up -> migrate -> seed -> device-login + recovery E2E smoke | pass + screenshot |
+| 4 | `flutter test` + `go test ./...` full suite | coverage >= target |
+| 5 | Social Suite v3 — Business & Community.html ကို /design/ ထဲ copy (hash = HTML-MD5.txt မှတ်) | MD5 match |
+| 6 | zip -r Nexus-<ver>-<date>.zip (excluding .git, build/, node_modules/, secrets) | BUILD_MANIFEST.txt: tag/SHA/date/gates/HTML-MD5 |
+| 7 | SHA-256 checksum + GitHub Release သို့ တင် ZIP + HTML (နှစ်ဖိုင်လုံး အတူတွဲ); download → extract → checksum re-verify | team lead approve |
+| 8 | ZIP hash release log တွင် record; ယခင် rc files archive | done |
+
+ 
+
+files to attach together (and separately from the ZIP): (1) Nexus-<ver>.zip (2) Social Suite v3 - Business & Community.html (3) BUILD_MANIFEST.txt (4) SHA-256 list. The receiver (including whoever runs Qoder Agent) must verify the /design HTML against this design baseline.
+
+၇။ Final Definition of Done — ZIP Release Sign-off Checklist
+
+| ☐ | Item |
+| --- | --- |
+| ☐ | G1 build green (CI all jobs pass on tag commit) |
+| ☐ | G2 ZIP ကို fresh machine တွင် README only ဖြင့် start အောင်မြင် |
+| ☐ | G3 device-login 200/202 + Gmail recovery end-to-end flow E2E pass; SMS OTP code/dependency 0 |
+| ☐ | G4 မျက်နှာ ၆ ခု + auth screens နှင့် HTML parity sign-off (QA + design 2 signatures) |
+| ☐ | G5 coverage threshold ပြည့်; perf gates ပြည့်; ZAP/gitleaks clean |
+| ☐ | G6 CI/CD + compose + store metadata bundle ပြည့်စုံ |
+| ☐ | G7 SBOM + critical dependency vulns 0 |
+| ☐ | G8 docs bundle ပြည့်စုံ (README/OpenAPI/ERD/Runbook/CHANGELOG/LICENSE) |
+| ☐ | ZIP ထဲ /design HTML MD5 သည် မူရင်း HTML ဖိုင်နှင့် တူညီ |
+| ☐ | BUILD_MANIFEST.txt + SHA-256 + GitHub Release တင်ပြီး၊ team lead sign-off |
+
+ 
+
+
+
+၈။ Team Roles (ZIP delivery responsibility Matrix)
+
+| Role | အရေအတွက် | တာဝန် (ဤလမ်းညွှန်အတိုင်း) |
+| --- | --- | --- |
+| Team Lead / PM | 1 | sprint planning, gate sign-off, ZIP release approve |
+| Go Backend Dev | 2 | §၂.၃–၂.၄, auth API, migrations, §၄.၂ |
+| Flutter Dev | 2 | HTML parity, auth screens, §၂.၃ Dart standard |
+| QA Engineer | 1 | section 3 all, beta management, sign-off |
+| DevOps | 1 | CI/CD, section 4.1-4.2, ZIP SOP execution (section 6) |
+| Designer | 0.5 | design QA, store screenshot review |
+
+ 
+
+Reference documents: ① All-in-One လမ်းညွှန် (7 stages + DoD checklists) ② Project Building Developer Document (auth spec + Qoder directive) ③ Project Production Grade Live App Document (2026 UI/UX) ④ Social Suite v3 — Business & Community.html (design source of truth)
+

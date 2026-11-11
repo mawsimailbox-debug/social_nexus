@@ -1,0 +1,27 @@
+{
+  "design_html_md5": "a8fafd493261eda3876d79039c564e10",
+  "screens_in_design": [
+    "feed",
+    "chat",
+    "profile",
+    "discover",
+    "biz",
+    "grp"
+  ],
+  "screens_in_flutter": [
+    "auth_screen",
+    "chat_screen",
+    "discover_screen",
+    "feed_screen",
+    "group_screen",
+    "profile_screen",
+    "shop_screen"
+  ],
+  "design_tokens": 16,
+  "design_token_hex_values": 14,
+  "hex_values_present_in_dart": 0,
+  "token_names_absent_from_dart": 5,
+  "design_ids": 49,
+  "design_data_attributes": 138,
+  "note": "Automated structural parity only. Visual parity requires rendered screenshots and human QA+design sign-off."
+}

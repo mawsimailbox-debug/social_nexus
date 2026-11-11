@@ -1,0 +1,11 @@
+{
+  "html_sha256": "caaceacf58f265cd24cc7423abe9b4fbee980b5ff771d442d68d7e63122d5040",
+  "guide_sha256": "49c23fe0e034865a54d09ca2fd021c43a082d8ec649362358125e6979c09addf",
+  "photo_sha256": "54e2e298b5da6487af2bee7702559bf8c6151e1bd5b99b087a26ae53a163ca53",
+  "posts": 6,
+  "discover_entries": 13,
+  "guide_characters": 15332,
+  "sdk": "3.47.9",
+  "sdk_release": "2026-10-29",
+  "sdk_archive_sha256": "25ed8c3c29d51a7353f2a944310b478af8214920639524b19c50a19e6c044c5a"
+}

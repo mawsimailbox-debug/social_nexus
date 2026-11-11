@@ -1,0 +1,11 @@
+# G2 rehearsal - extracted strictly from the produced release ZIP (rerun after gitignore fix)
+zip sha256: cbf9c1f1d75ad9b94df28f3fcd01753427d3e25daf2b74315e367838c284cae9
+go build ./cmd/api: OK
+migrate up: OK
+GET /healthz: 200
+GET /readyz: 200
+flutter pub get --enforce-lockfile: OK
+flutter analyze: OK
+flutter test: OK 00:10 +25: All tests passed!
+elapsed seconds: 39 (G2 target 1800s)
+container path: NOT EXERCISED - sandbox blocks container init (exit 126)

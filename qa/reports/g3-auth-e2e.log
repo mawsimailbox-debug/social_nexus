@@ -1,0 +1,26 @@
+INFO  /healthz=200 /readyz=200
+STEP 1 register a pending account (email capability required before device binding)
+PASS  POST /api/v1/auth/register -> 202 (expected 202) {"action":"REQUIRE_EMAIL_VERIFICATION"}
+
+STEP 2 device-login on an unbound device must return 202
+PASS  POST /api/v1/auth/device-login -> 202 (expected 202) {"action":"REQUIRE_EMAIL_VERIFICATION"}
+
+STEP 3 email-verify issues the recovery capability
+PASS  POST /api/v1/auth/email-verify -> 202 (expected 202) {"action":"CHECK_EMAIL"}
+
+INFO  capability captured from local mail sink (len 66)
+STEP 4 otp/confirm binds device A to the account
+PASS  POST /api/v1/auth/otp/confirm -> 200 (expected 200) {"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwblp1QmRJNUtWUTZuQkR4LXFKSnFLUDYiLCJzaWQiOiI0UTNFYlNiZ2pUb2R0aGVmX0ZlMS1uTUEiLCJpc3MiOiJuZXh1cyIsImF1ZCI
+INFO  jwt issued: True refresh issued: True
+STEP 5 device A (now known) device-login returns 200
+PASS  POST /api/v1/auth/device-login -> 200 (expected 200) {"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwblp1QmRJNUtWUTZuQkR4LXFKSnFLUDYiLCJzaWQiOiJ1a3NldjNsNkNrVHJnTXlpbFFOd0Y5SkEiLCJpc3MiOiJuZXh1cyIsImF1ZCI
+STEP 6 device B (new installation) returns 202
+PASS  POST /api/v1/auth/device-login -> 202 (expected 202) {"action":"REQUIRE_EMAIL_VERIFICATION"}
+
+STEP 7 replaying a consumed capability must be rejected
+PASS  POST /api/v1/auth/otp/confirm -> 401 (expected 401) {"error":"unauthorized","request_id":"lTggB-E_2F2rXX-icXm_B-KZ"}
+
+
+SUMMARY
+  steps: 7  pass: 7  fail: 0
+  SMS OTP dependency: NONE (no SMS endpoint or provider in the router)

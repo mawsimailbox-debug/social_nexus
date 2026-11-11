@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: backend (go build + vet + race tests)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: nexus
+          POSTGRES_PASSWORD: nexus
+          POSTGRES_DB: nexus_backend_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U nexus"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      NEXUS_ENV: development
+      NEXUS_TEST_DATABASE_URL: postgres://nexus:nexus@127.0.0.1:5432/nexus_backend_test?sslmode=disable
+      NEXUS_EMAIL_FROM: no-reply@nexus.local
+      NEXUS_JWT_KEY: Y2ktb25seS1qd3Qta2V5LW5vdC1mb3ItcHJvZHVjdGlvbi0wMDA=
+      NEXUS_ENCRYPTION_KEY: Y2ktb25seS1lbmMta2V5LW5vdC1mb3ItcHJvZHVjdGlvbi0wMDA=
+      NEXUS_LOOKUP_KEY: Y2ktb25seS1sb29rdXAta2V5LW5vdC1mb3ItcHJvZHVjdGlvbi0wMA==
+    defaults:
+      run:
+        working-directory: backend-go
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: backend-go/go.mod
+          cache-dependency-path: backend-go/go.sum
+      - name: go vet
+        run: go vet ./...
+      - name: go build
+        run: go build ./...
+      - name: migrate up
+        run: go run ./cmd/migrate up
+      - name: go test -race
+        run: go test -race ./...
+
+  flutter:
+    name: flutter (analyze + widget/unit tests)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app-flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: pub get
+        run: flutter pub get --enforce-lockfile
+      - name: analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
+      - name: test
+        run: flutter test
+
+  design-guard:
+    name: design source of truth unchanged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: design HTML md5 must stay a8fafd493261eda3876d79039c564e10
+        run: |
+          set -euo pipefail
+          f="design/Social Suite v3 — Business & Community.html"
+          test -f "$f"
+          got=$(md5sum "$f" | cut -d' ' -f1)
+          echo "design md5: $got"
+          test "$got" = "a8fafd493261eda3876d79039c564e10"
+
+  secrets:
+    name: secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        run: |
+          set -euo pipefail
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks_linux_x64.tar.gz -o /tmp/g.tgz
+          tar -xzf /tmp/g.tgz -C /tmp gitleaks
+          /tmp/gitleaks dir . --no-banner --redact --exit-code 1

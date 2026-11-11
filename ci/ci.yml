@@ -1,0 +1,95 @@
+name: Nexus CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pins-prerequisite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - run: python3 ci/check-pins.py
+  ops:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - run: python3 -m pip install PyYAML==6.0.2
+      - run: python3 scripts/validate-ops.py
+  go:
+    needs: [pins-prerequisite]
+    runs-on: [self-hosted, nexus-go-security]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+        with: {go-version-file: backend-go/go.mod, cache-dependency-path: backend-go/go.sum}
+      - run: bash ci/check-go.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: go-reports, path: qa/reports/, retention-days: 30, if-no-files-found: error}
+  flutter:
+    needs: [pins-prerequisite]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - run: test -n "$FLUTTER_VERSION"
+        env: {FLUTTER_VERSION: '${{ vars.NEXUS_FLUTTER_VERSION }}'}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {flutter-version: '${{ vars.NEXUS_FLUTTER_VERSION }}', channel: stable}
+      - run: bash ci/check-flutter.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: android-builds-and-coverage
+          path: |
+            app-flutter/build/app/outputs/
+            app-flutter/coverage/
+          retention-days: 30
+          if-no-files-found: error
+  ios:
+    needs: [pins-prerequisite]
+    runs-on: macos-latest
+    environment: ios-signing
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {flutter-version: '${{ vars.NEXUS_FLUTTER_VERSION }}', channel: stable}
+      - run: bash ci/build-ios.sh
+        env:
+          NEXUS_IOS_CERTIFICATE_BASE64: ${{ secrets.NEXUS_IOS_CERTIFICATE_BASE64 }}
+          NEXUS_IOS_CERTIFICATE_PASSWORD: ${{ secrets.NEXUS_IOS_CERTIFICATE_PASSWORD }}
+          NEXUS_IOS_PROFILE_BASE64: ${{ secrets.NEXUS_IOS_PROFILE_BASE64 }}
+          NEXUS_IOS_EXPORT_OPTIONS_BASE64: ${{ secrets.NEXUS_IOS_EXPORT_OPTIONS_BASE64 }}
+          NEXUS_IOS_KEYCHAIN_PASSWORD: ${{ secrets.NEXUS_IOS_KEYCHAIN_PASSWORD }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with: {name: signed-ios-ipa, path: app-flutter/build/ios/ipa/*.ipa, retention-days: 30, if-no-files-found: error}
+  security:
+    needs: [pins-prerequisite]
+    runs-on: [self-hosted, nexus-go-security]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false, fetch-depth: 0}
+      - run: bash ci/security.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with: {name: security-and-sbom, path: qa/reports/, retention-days: 30, if-no-files-found: error}
+  release-readiness:
+    needs: [ops, go, flutter, ios, security]
+    runs-on: [self-hosted, nexus-release-trusted]
+    environment: release-approval
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false, fetch-depth: 0}
+      - run: python3 ci/check-pins.py --runtime
+      - run: python3 scripts/release-gate.py --phase candidate --evidence "$NEXUS_EVIDENCE_DIR"
+        env:
+          NEXUS_RELEASE_TRUST_POLICY: ${{ vars.NEXUS_RELEASE_TRUST_POLICY }}
+          NEXUS_EVIDENCE_DIR: ${{ vars.NEXUS_EVIDENCE_DIR }}

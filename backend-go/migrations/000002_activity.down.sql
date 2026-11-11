@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS cart_entries;
+DROP TABLE IF EXISTS shares;
+DROP TABLE IF EXISTS notifications;
+DROP TABLE IF EXISTS user_follows;

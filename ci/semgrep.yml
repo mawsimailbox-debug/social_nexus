@@ -1,0 +1,11 @@
+rules:
+  - id: dart-no-disabled-certificate-validation
+    languages: [generic]
+    message: Certificate-validation bypass needs removal, not suppression.
+    severity: ERROR
+    pattern-regex: 'badCertificateCallback\s*='
+  - id: go-no-tls-insecure-skip
+    languages: [go]
+    message: TLS certificate verification must not be disabled.
+    severity: ERROR
+    pattern: 'tls.Config{..., InsecureSkipVerify: true, ...}'

@@ -1,0 +1,18 @@
+flowchart TD
+  Login[Device + phone login] --> Decision{API status}
+  Decision -->|200| Feed
+  Decision -->|202| Email[Phone + email verification]
+  Email --> OTP[Real mailbox OTP]
+  OTP --> Confirm[Atomic consume and device rebind]
+  Confirm --> Feed
+  Register[Register with required email] --> Login
+  Feed --> Chat
+  Feed --> Profile
+  Feed --> Discover
+  Profile --> Shop
+  Discover --> Shop
+  Discover --> Group
+  Feed --> Composer
+  Feed --> Comments
+  Feed --> Share
+  Feed --> Notifications

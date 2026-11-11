@@ -1,0 +1,19 @@
+Nexus BUILD_MANIFEST — NEX-PRD-ZIP-001 §6 SOP
+ZIP file: Nexus-0.1.0-rc1-20261110.zip
+Commit SHA: 994b1da771281ebec4d024df6e0a264d9c95646f
+Generated UTC: 2026-11-11T00:56:59+00:00
+Files inventoried: 278 (per-file digests in SHA256SUMS)
+Design HTML MD5: a8fafd493261eda3876d79039c564e10
+
+GATES (local evidence, 2026-11-10/11)
+G1 Build Green: LOCAL-EQUIVALENT PASS (go vet/build/test, flutter analyze/test); hosted CI NOT run - no GitHub remote
+G2 Runs From ZIP: NON-CONTAINER REHEARSAL (see qa/reports/g2-fresh-extract.log); Docker Compose blocked (container init exit 126)
+G3 Auth Complete: PASS over real HTTP - qa/reports/g3-auth-e2e.log (steps: 7  pass: 7  fail: 0); SMS absent
+G4 2026 UI Parity: STRUCTURAL EVIDENCE ONLY (qa/reports/g4-parity.json); QA+Design signatures BLANK
+G5 Coverage: backend 82.6% (>=70 PASS), auth 100%; flutter 25/25 tests; perf gates NOT run
+G6 Deploy Configs: compose validates, CI workflows present, store metadata present
+G7 Security: gitleaks 0 findings, govulncheck report present, gosec log present, SBOM present; ZAP/DAST NOT run
+G8 Docs Bundle: PASS
+Item9 design MD5: PASS (a8fafd493261eda3876d79039c564e10)
+Item10 GitHub Release: BLOCKED (no remote, gh not authenticated, GitHub connector not connected)
+Item11 Team Lead signature: BLANK

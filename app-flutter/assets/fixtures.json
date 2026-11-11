@@ -1,0 +1,447 @@
+{
+  "feed": [
+    {
+      "id": "p1",
+      "kind": "video",
+      "score": 62,
+      "nearby": false,
+      "friend": true,
+      "reason": "Because you follow @sophie.jap",
+      "title": "",
+      "body": "Editorial video — shot by the lake at golden hour. No filter, just light.",
+      "author": "@sophie.jap",
+      "subtitle": "",
+      "location": "Ngwe Saung · Coast",
+      "likes": 12400,
+      "comments": 1208,
+      "shares": 0,
+      "tags": "#editorial #suits #casual",
+      "music": "Hozier — Too Sweet"
+    },
+    {
+      "id": "p2",
+      "kind": "feel",
+      "score": 92,
+      "nearby": true,
+      "friend": true,
+      "reason": "Because you reacted to @thiri.aung 3 times this week",
+      "title": "wb_sunny GRATEFUL",
+      "body": "Some evenings I just sit by the lake and let the day go. Nothing big happened today — and that felt like enough.",
+      "author": "Thiri Aung",
+      "subtitle": "@thiri.aung · 12 min · place Inya Lake",
+      "location": "Friend · 1.2 km",
+      "likes": 892,
+      "comments": 42,
+      "shares": 18,
+      "tags": "",
+      "music": ""
+    },
+    {
+      "id": "p3",
+      "kind": "loc",
+      "score": 74,
+      "nearby": true,
+      "friend": true,
+      "reason": "Popular with people near Inya Lake",
+      "title": "Sunset at Inya Lake",
+      "body": "5 min walk from my place. Best light around 5:40pm — bring a jacket.",
+      "author": "Kyaw Zin",
+      "subtitle": "",
+      "location": "Following · 800 m",
+      "likes": 431,
+      "comments": 27,
+      "shares": 11,
+      "tags": "",
+      "music": ""
+    },
+    {
+      "id": "p4",
+      "kind": "feel",
+      "score": 51,
+      "nearby": true,
+      "friend": true,
+      "reason": "Because @nang.seng follows you",
+      "title": "nightlight MISSING HOME",
+      "body": "Missing home today. Anyone else living far from family? Even a voice note would be enough.",
+      "author": "Nang Seng",
+      "subtitle": "@nang.seng · 40 min · place Hledan",
+      "location": "Follower · 2.4 km",
+      "likes": 1204,
+      "comments": 88,
+      "shares": 64,
+      "tags": "",
+      "music": ""
+    },
+    {
+      "id": "p5",
+      "kind": "promo",
+      "score": 70,
+      "nearby": true,
+      "friend": false,
+      "reason": "Business near you · Shwe Kyaung Coffee",
+      "title": "local_offer 20% OFF BEFORE 10 AM",
+      "body": "Mohinga, laphet thoke and slow-brewed coffee. 4.8 ★ from 216 neighbours.",
+      "author": "Shwe Kyaung Coffee",
+      "subtitle": "",
+      "location": "800 m · Open now",
+      "likes": 318,
+      "comments": 19,
+      "shares": 42,
+      "tags": "",
+      "music": ""
+    },
+    {
+      "id": "p6",
+      "kind": "grpcard",
+      "score": 40,
+      "nearby": true,
+      "friend": false,
+      "reason": "A group 1.4k people near you joined",
+      "title": "Inya Lake Runners",
+      "body": "1.4k members · Public · 2 km away Weekly 6am runs around the lake",
+      "author": "Kyaw Zin",
+      "subtitle": "",
+      "location": "",
+      "likes": 156,
+      "comments": 0,
+      "shares": 9,
+      "tags": "",
+      "music": ""
+    }
+  ],
+  "discover": [
+    {
+      "id": "d0",
+      "category": "groups",
+      "subtype": "",
+      "title": "Inya Lake Runners",
+      "subtitle": "1.4k members · Public · 2 km away",
+      "icon": "diversity_3",
+      "selected": true,
+      "target": "",
+      "action": "Joined"
+    },
+    {
+      "id": "d1",
+      "category": "groups",
+      "subtype": "",
+      "title": "Yangon Film Photographers",
+      "subtitle": "8.2k members · Public · 3.1 km away",
+      "icon": "photo_library",
+      "selected": false,
+      "target": "",
+      "action": "Join"
+    },
+    {
+      "id": "d2",
+      "category": "groups",
+      "subtype": "",
+      "title": "Home Cooks of Yangon",
+      "subtitle": "3.1k members · Private · 1.8 km away",
+      "icon": "restaurant",
+      "selected": false,
+      "target": "",
+      "action": "Join"
+    },
+    {
+      "id": "d3",
+      "category": "people",
+      "subtype": "",
+      "title": "Thiri Aung",
+      "subtitle": "1.2 km away · 6 mutual · photography, coffee",
+      "icon": "TA",
+      "selected": false,
+      "target": "",
+      "action": "Follow"
+    },
+    {
+      "id": "d4",
+      "category": "people",
+      "subtype": "",
+      "title": "Kyaw Zin",
+      "subtitle": "800 m away · 3 mutual · running, film",
+      "icon": "KZ",
+      "selected": false,
+      "target": "",
+      "action": "Follow"
+    },
+    {
+      "id": "d5",
+      "category": "people",
+      "subtype": "",
+      "title": "Nang Seng",
+      "subtitle": "2.4 km away · 2 mutual · cooking, travel",
+      "icon": "NS",
+      "selected": false,
+      "target": "",
+      "action": "Follow"
+    },
+    {
+      "id": "d6",
+      "category": "places",
+      "subtype": "",
+      "title": "Shwe Kyaung Coffee",
+      "subtitle": "4.8 ★ (216) · Open · 800 m",
+      "icon": "storefront",
+      "selected": false,
+      "target": "business",
+      "action": "View"
+    },
+    {
+      "id": "d7",
+      "category": "places",
+      "subtype": "",
+      "title": "Inya Lake Boats",
+      "subtitle": "4.5 ★ (98) · Closed · 1.4 km",
+      "icon": "sailing",
+      "selected": false,
+      "target": "",
+      "action": "View"
+    },
+    {
+      "id": "d8",
+      "category": "places",
+      "subtype": "",
+      "title": "Hledan Night Market",
+      "subtitle": "4.6 ★ (512) · Open · 2.2 km",
+      "icon": "storefront",
+      "selected": false,
+      "target": "",
+      "action": "View"
+    },
+    {
+      "id": "d9",
+      "category": "business",
+      "subtype": "cafe",
+      "title": "Shwe Kyaung Coffee",
+      "subtitle": "Cafe · 4.8 ★ · Open · 800 m · 3 posts this week",
+      "icon": "local_cafe",
+      "selected": false,
+      "target": "business",
+      "action": "View"
+    },
+    {
+      "id": "d10",
+      "category": "business",
+      "subtype": "service",
+      "title": "Yangon Bike Repair",
+      "subtitle": "Service · 4.6 ★ · Open · 1.1 km · 1 post this week",
+      "icon": "pedal_bike",
+      "selected": false,
+      "target": "",
+      "action": "View"
+    },
+    {
+      "id": "d11",
+      "category": "business",
+      "subtype": "food",
+      "title": "Hledan Night Market",
+      "subtitle": "Food · 4.6 ★ · Closed · 2.2 km · 6 posts this week",
+      "icon": "storefront",
+      "selected": false,
+      "target": "",
+      "action": "View"
+    },
+    {
+      "id": "d12",
+      "category": "business",
+      "subtype": "fashion",
+      "title": "Ponnya Thiri Tailor",
+      "subtitle": "Fashion · 4.9 ★ · Open · 1.6 km · 2 posts this week",
+      "icon": "checkroom",
+      "selected": false,
+      "target": "",
+      "action": "View"
+    }
+  ],
+  "products": [
+    {
+      "id": "product0",
+      "title": "Mohinga",
+      "subtitle": "Breakfast · until 11:00",
+      "price": "2,500 K"
+    },
+    {
+      "id": "product1",
+      "title": "Laphet thoke",
+      "subtitle": "Tea leaf salad · mild",
+      "price": "3,000 K"
+    },
+    {
+      "id": "product2",
+      "title": "Iced latte",
+      "subtitle": "House blend · 20% off before 10:00",
+      "price": "4,200 K"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n0",
+      "title": "Ko Min commented on your post: \"This is exactly what I needed to read today.\"",
+      "subtitle": "4 min ago · tap to reply",
+      "category": "comment",
+      "unread": true
+    },
+    {
+      "id": "n1",
+      "title": "Thiri Aung and 12 others reacted 🤗 to your feeling post.",
+      "subtitle": "18 min ago",
+      "category": "react",
+      "unread": true
+    },
+    {
+      "id": "n2",
+      "title": "Nang Seng shared your post to her profile.",
+      "subtitle": "1 h ago · 3 new visits",
+      "category": "share",
+      "unread": true
+    },
+    {
+      "id": "n3",
+      "title": "Inya Lake Runners posted the Saturday route.",
+      "subtitle": "3 h ago",
+      "category": "group",
+      "unread": false
+    },
+    {
+      "id": "n4",
+      "title": "Shwe Kyaung Coffee has a 20% offer until 10am.",
+      "subtitle": "5 h ago · 800 m away",
+      "category": "biz",
+      "unread": false
+    }
+  ],
+  "messages": [
+    {
+      "id": "m0",
+      "body": "Hey! Just watched the first cut. The golden hour shots by the arch are unreal.",
+      "outgoing": false
+    },
+    {
+      "id": "m1",
+      "body": "Can we post it tonight?",
+      "outgoing": false
+    },
+    {
+      "id": "m2",
+      "body": "Yes, uploading now. Ten minutes.",
+      "outgoing": true
+    },
+    {
+      "id": "m3",
+      "body": "I also swapped in the new soundtrack — tell me if the intro feels too slow.",
+      "outgoing": true
+    },
+    {
+      "id": "m4",
+      "body": "Perfect. The slow intro works — it holds the shot.",
+      "outgoing": false
+    }
+  ],
+  "profile": {
+    "id": "me",
+    "title": "Sophie Jap",
+    "handle": "@sophie.jap",
+    "bio": "Editorial & travel films. Iceland, mostly. Shooting with natural light since 2019.",
+    "stats": [
+      "128 Following",
+      "8.4K Followers",
+      "96.2K Likes"
+    ]
+  },
+  "shop": {
+    "id": "shwe-kyaung",
+    "title": "Shwe Kyaung Coffee",
+    "subtitle": "Shwe Kyaung Coffee check Cafe & tea shop · Open · closes 21:00 4.8 ★ (216) · 800 m away · 1.2k followers",
+    "contact": [
+      {
+        "title": "+95 9 771 234 567",
+        "subtitle": "Tap to call · replies within 10 min"
+      },
+      {
+        "title": "24 Inya Road, Bahan, Yangon",
+        "subtitle": "800 m · 10 min walk from the lake"
+      },
+      {
+        "title": "Open today · 07:00 – 21:00",
+        "subtitle": "Mon – Sun · kitchen closes 20:30"
+      }
+    ],
+    "reviews": [
+      {
+        "title": "Thiri Aung",
+        "body": "Quiet corner, good light and the mohinga is worth waking up for.",
+        "subtitle": "★★★★★"
+      },
+      {
+        "title": "Kyaw Zin",
+        "body": "Fast service before 9am. Ask for the corner table by the window.",
+        "subtitle": "★★★★☆"
+      }
+    ]
+  },
+  "group": {
+    "id": "inya-runners",
+    "title": "Inya Lake Runners",
+    "subtitle": "1.4k members · Public group · 2 km away",
+    "body": "We run 5 km around the lake every Saturday at 6am. All paces welcome —\n            walkers, first-timers and people who just want coffee afterwards.",
+    "rules": [
+      "01 Show up, or tell us you can't — no silent no-shows.",
+      "02 Keep photos of members inside the group.",
+      "03 No selling. Recommendations are fine, ads are not."
+    ],
+    "recent": [
+      {
+        "title": "Thiri Aung · 2h",
+        "subtitle": "Saturday route is 5.2 km this week — meet at the north gate, 5:45am."
+      },
+      {
+        "title": "Nang Seng · 5h",
+        "subtitle": "Photos from last week are up. Tag yourself if you want."
+      },
+      {
+        "title": "Find members",
+        "subtitle": "Search 1.4k members by name or interest."
+      }
+    ]
+  },
+  "comments": [
+    {
+      "id": "c0",
+      "title": "Ko Min",
+      "body": "This is exactly what I needed to read today.",
+      "subtitle": "4 min"
+    },
+    {
+      "id": "c1",
+      "title": "Thiri Aung",
+      "body": "Come sit by the lake with me next time.",
+      "subtitle": "2 min"
+    }
+  ],
+  "tokens": {
+    "canvas": "#D1CFCB",
+    "canvas-hi": "#E9E7E3",
+    "ink": "#262B2E",
+    "ink-deep": "#161A1C",
+    "ink-soft": "#1B2022",
+    "card": "#22272A",
+    "card-2": "#2A3034",
+    "pill": "#4B4A4B",
+    "muted": "#93928F",
+    "white": "#FFFFFF",
+    "tan": "#C2926B",
+    "tan-soft": "rgba(194,146,107,.18)",
+    "alert": "#FF453A",
+    "paper": "#F4F2EE",
+    "line": "#E3E0DA"
+  },
+  "screen_text": {
+    "feed": "9:41 signal_cellular_alt wifi battery_full For You 📍 Nearby search notifications_none people_alt Friends & following first · then people within 2 km place Ngwe Saung · Coast add favorite_border 12.4K chat_bubble 1,208 bookmark 8,342 send Share auto_awesome Because you follow @sophie.jap @sophie.jap Editorial video — shot by the lake at golden hour. No filter, just light. #editorial #suits #casual music_note Hozier — Too Sweet place Friend · 1.2 km auto_awesome Because you reacted to @thiri.aung 3 times this week wb_sunny GRATEFUL Some evenings I just sit by the lake and let the day go. Nothing big happened today — and that felt like enough. Thiri Aung @thiri.aung · 12 min · place Inya Lake favorite_border 892 chat_bubble_outline 42 ios_share 18 bookmark_border near_me Following · 800 m auto_awesome Popular with people near Inya Lake Sunset at Inya Lake 5 min walk from my place. Best light around 5:40pm — bring a jacket. map Open map bookmark_border Save favorite_border 431 chat_bubble_outline 27 ios_share 11 bookmark_border place Follower · 2.4 km auto_awesome Because @nang.seng follows you nightlight MISSING HOME Missing home today. Anyone else living far from family? Even a voice note would be enough. Nang Seng @nang.seng · 40 min · place Hledan favorite_border 1,204 chat_bubble_outline 88 ios_share 64 bookmark_border near_me 800 m · Open now auto_awesome Business near you · Shwe Kyaung Coffee local_offer 20% OFF BEFORE 10 AM Shwe Kyaung Coffee Mohinga, laphet thoke and slow-brewed coffee. 4.8 ★ from 216 neighbours. storefront View shop call Call favorite_border 318 chat_bubble_outline 19 ios_share 42 bookmark_border auto_awesome A group 1.4k people near you joined Inya Lake Runners 1.4k members · Public · 2 km away Weekly 6am runs around the lake Join group favorite_border 156 ios_share 9 bookmark_border home search add chat_bubble person",
+    "chat": "arrow_back_ios_new Sophie Jap Active now call videocam TODAY · 19:38 Hey! Just watched the first cut. The golden hour shots by the arch are unreal. Can we post it tonight? 19:41 Yes, uploading now. Ten minutes. I also swapped in the new soundtrack — tell me if the intro feels too slow. Seen 19:42 19:42 Perfect. The slow intro works — it holds the shot. add_circle_outline sentiment_satisfied_alt send home search add chat_bubble person",
+    "profile": "9:41 signal_cellular_alt wifi battery_full Sophie Jap @sophie.jap Editorial & travel films. Iceland, mostly. Shooting with natural light since 2019. storefront Shwe Kyaung Coffee Business · Cafe · 800 m · 216 reviews chevron_right 128 Following 8.4K Followers 96.2K Likes Edit profile ios_share Videos Liked Saved home search add chat_bubble person",
+    "discover": "Discover search Groups People Places Business All Cafe Food Services Fashion diversity_3 Inya Lake Runners 1.4k members · Public · 2 km away Joined photo_library Yangon Film Photographers 8.2k members · Public · 3.1 km away Join restaurant Home Cooks of Yangon 3.1k members · Private · 1.8 km away Join TA Thiri Aung 1.2 km away · 6 mutual · photography, coffee Follow KZ Kyaw Zin 800 m away · 3 mutual · running, film Follow NS Nang Seng 2.4 km away · 2 mutual · cooking, travel Follow storefront Shwe Kyaung Coffee check 4.8 ★ (216) · Open · 800 m View sailing Inya Lake Boats 4.5 ★ (98) · Closed · 1.4 km View storefront Hledan Night Market 4.6 ★ (512) · Open · 2.2 km View local_cafe Shwe Kyaung Coffee check Cafe · 4.8 ★ · Open · 800 m · 3 posts this week View pedal_bike Yangon Bike Repair Service · 4.6 ★ · Open · 1.1 km · 1 post this week View storefront Hledan Night Market Food · 4.6 ★ · Closed · 2.2 km · 6 posts this week View checkroom Ponnya Thiri Tailor Fashion · 4.9 ★ · Open · 1.6 km · 2 posts this week View home search add chat_bubble person",
+    "business": "arrow_back_ios_new SK Shwe Kyaung Coffee check Cafe & tea shop · Open · closes 21:00 4.8 ★ (216) · 800 m away · 1.2k followers call Call directions Directions chat_bubble Message bookmark_border Save CONTACT & HOURS call +95 9 771 234 567 Tap to call · replies within 10 min chevron_right place 24 Inya Road, Bahan, Yangon 800 m · 10 min walk from the lake chevron_right schedule Open today · 07:00 – 21:00 Mon – Sun · kitchen closes 20:30 chevron_right PRICE LIST · TODAY ramen_dining Mohinga Breakfast · until 11:00 2,500 K add rice_bowl Laphet thoke Tea leaf salad · mild 3,000 K add local_cafe Iced latte House blend · 20% off before 10:00 4,200 K add PHOTOS NEIGHBOURS SAY Thiri Aung ★★★★★ Quiet corner, good light and the mohinga is worth waking up for. Kyaw Zin ★★★★☆ Fast service before 9am. Ask for the corner table by the window. Call shop Directions",
+    "group": "arrow_back_ios_new Inya Lake Runners 1.4k members · Public group · 2 km away TA KZ NS AM + 1.4k members Join group Leave this group We run 5 km around the lake every Saturday at 6am. All paces welcome —\n            walkers, first-timers and people who just want coffee afterwards. GROUP RULES 01 Show up, or tell us you can't — no silent no-shows. 02 Keep photos of members inside the group. 03 No selling. Recommendations are fine, ads are not. RECENT IN THE GROUP TA Thiri Aung · 2h Saturday route is 5.2 km this week — meet at the north gate, 5:45am. NS Nang Seng · 5h Photos from last week are up. Tag yourself if you want. KZ Find members Search 1.4k members by name or interest."
+  }
+}

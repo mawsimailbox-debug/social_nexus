@@ -1,0 +1,685 @@
+openapi: 3.0.3
+info:
+  title: Nexus API
+  version: 1.0.0-rc1
+  license:
+    name: UNLICENSED — owner licensing decision pending
+    url: ./LICENSE
+  description: >-
+    Single authoritative API contract. All protected endpoints require a live
+    server-side session and a fixed HS256 access JWT. No SMS endpoints exist.
+    Email OTP is an opaque selector.secret capability (128-bit selector and
+    256-bit secret), not six digits. The full capability is supplied as otp;
+    this binds confirmation to one account without adding a challenge_id field.
+servers:
+  - url: /api/v1
+security:
+  - bearerAuth: []
+paths:
+  /auth/register:
+    post:
+      operationId: register
+      summary: Reserve a pending registration with mandatory email
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [phone_number, device_id, email]
+              properties:
+                phone_number: {$ref: '#/components/schemas/Phone'}
+                device_id: {$ref: '#/components/schemas/Device'}
+                email: {type: string, format: email, maxLength: 254}
+      responses:
+        '202': {$ref: '#/components/responses/VerificationRequired'}
+        '400': {$ref: '#/components/responses/Error'}
+        '409': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+  /auth/device-login:
+    post:
+      operationId: deviceLogin
+      summary: Authenticate a verified installation credential
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [device_id, phone_number]
+              properties:
+                phone_number: {$ref: '#/components/schemas/Phone'}
+                device_id: {$ref: '#/components/schemas/Device'}
+      responses:
+        '200': {$ref: '#/components/responses/Tokens'}
+        '202': {$ref: '#/components/responses/VerificationRequired'}
+        '400': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+  /auth/email-verify:
+    post:
+      operationId: emailVerify
+      summary: Send a capability to the stored matching email
+      security: []
+      description: >-
+        Uniform 202 for unknown phone or mismatched email. Persistent one-send
+        reservation per phone per 60 seconds, including unknown identities.
+        Provider failure invalidates the reserved code and returns 500.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [phone_number, email]
+              properties:
+                phone_number: {$ref: '#/components/schemas/Phone'}
+                email: {type: string, format: email, maxLength: 254}
+      responses:
+        '202':
+          description: Check email; existence is not disclosed
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [action]
+                properties:
+                  action: {type: string, enum: [CHECK_EMAIL]}
+        '400': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+  /auth/otp/confirm:
+    post:
+      operationId: confirmOTP
+      summary: Confirm email capability and atomically replace the device
+      security: []
+      description: >-
+        Atomic single-use challenge consumption, verified email flag, device
+        replacement, old-session revocation and new session creation. Ten-minute
+        expiry, five wrong-secret attempts per selector. Device format errors
+        return 400; unknown, expired, locked and used capabilities return 401.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [otp, device_id]
+              properties:
+                otp: {type: string, pattern: '^[A-Za-z0-9_-]{22}\.[A-Za-z0-9_-]{43}$', writeOnly: true}
+                device_id: {$ref: '#/components/schemas/Device'}
+      responses:
+        '200': {$ref: '#/components/responses/Tokens'}
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+  /auth/refresh:
+    post:
+      operationId: rotateRefresh
+      summary: Rotate a refresh capability once
+      security: []
+      description: >-
+        Rotate opaque session-id.secret refresh token atomically. Reuse of the
+        immediately previous token revokes that session. Absolute 30-day expiry;
+        rotation does not extend it. Clients must serialize refresh requests.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [refresh]
+              properties:
+                refresh: {type: string, writeOnly: true}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200': {$ref: '#/components/responses/Tokens'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+  /auth/logout:
+    post:
+      operationId: logout
+      summary: Revoke the current session
+      responses:
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Session revoked immediately}
+        '401': {$ref: '#/components/responses/Error'}
+  /users/me:
+    get:
+      operationId: getProfile
+      summary: Read the authenticated user's profile
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200':
+          description: Own profile including decrypted contact information
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/User'}
+    patch:
+      operationId: updateProfile
+      summary: Update only supplied profile fields
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                name: {type: string, maxLength: 120, nullable: true}
+                bio: {type: string, maxLength: 1000, nullable: true}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200':
+          description: 'Updated profile; omitted or null fields are unchanged; explicit empty strings clear a field.'
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/User'}
+    delete:
+      operationId: deleteAccount
+      summary: Delete the authenticated account and dependent data
+      description: Cascading hard deletion; backup retention managed separately.
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Account and dependent content removed}
+  /notifications:
+    get: &activityList
+      operationId: listNotifications
+      summary: List the authenticated user's notifications
+      parameters:
+        - {$ref: '#/components/parameters/Limit'}
+        - {$ref: '#/components/parameters/Cursor'}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200':
+          description: Private activity keyset page
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, next_cursor]
+                properties:
+                  items: {type: array, items: {$ref: '#/components/schemas/Activity'}}
+                  next_cursor: {type: string}
+  /notifications/{id}/read:
+    parameters:
+      - {$ref: '#/components/parameters/ID'}
+    patch:
+      operationId: markNotificationRead
+      summary: Mark an owned notification as read
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Own notification marked read idempotently}
+        '404': {$ref: '#/components/responses/Error'}
+  /users/{user_id}/follow:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema: {type: string, maxLength: 128}
+    put: &followUser
+      operationId: followUser
+      summary: Follow an existing verified user
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Idempotent people-follow relation change}
+        '400': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+    delete:
+      <<: *followUser
+      operationId: unfollowUser
+      summary: Remove a people-follow relation
+  /users/me/following:
+    get:
+      <<: *activityList
+      operationId: listFollowing
+      summary: List the authenticated user's people-follow relations
+  /items/{id}/shares:
+    parameters:
+      - {$ref: '#/components/parameters/ID'}
+    post:
+      operationId: recordShare
+      summary: Record public top-level share intent idempotently
+      description: 'Idempotently record sharing a public top-level post, shop or group. Does not send a message or expose private content.'
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200':
+          description: Persisted share record
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Activity'}
+        '403': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+  /cart:
+    get:
+      <<: *activityList
+      operationId: listCart
+      summary: List the authenticated user's product cart
+  /cart/{id}:
+    parameters:
+      - {$ref: '#/components/parameters/ID'}
+    put:
+      operationId: setCartQuantity
+      summary: Set absolute product quantity in the private cart
+      description: Set absolute quantity for visible product ID; not an order or payment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [quantity]
+              properties:
+                quantity: {type: integer, minimum: 1, maximum: 99}
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Quantity set}
+        '400': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+    delete:
+      operationId: removeCartProduct
+      summary: Remove a product from the private cart
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Own cart entry removed idempotently by product ID}
+  /feed:
+    get: &list
+      operationId: listFeed
+      summary: List visible feed posts
+      parameters:
+        - {$ref: '#/components/parameters/Limit'}
+        - {$ref: '#/components/parameters/Cursor'}
+        - {$ref: '#/components/parameters/Search'}
+      responses:
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200': {$ref: '#/components/responses/Page'}
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '403': {$ref: '#/components/responses/Error'}
+    post: &create
+      operationId: createFeedPost
+      summary: Create a top-level feed post
+      requestBody: {$ref: '#/components/requestBodies/CreateItem'}
+      responses:
+        '409': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '201': {$ref: '#/components/responses/Item'}
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '403': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+  /feed/{id}/comments:
+    parameters: &idParameters
+      - {$ref: '#/components/parameters/ID'}
+    get:
+      <<: *list
+      operationId: listPostComments
+      summary: List visible comments on a post
+    post:
+      <<: *create
+      operationId: createPostComment
+      summary: Create a comment on a visible post
+  /chat/threads:
+    get:
+      <<: *list
+      operationId: listChatThreads
+      summary: List chat threads accessible to the current user
+    post:
+      operationId: createChatThread
+      summary: Create a private thread with existing participants
+      description: Private thread; member_ids requires 1-49 existing user IDs.
+      requestBody: {$ref: '#/components/requestBodies/CreateItem'}
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '409': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '201': {$ref: '#/components/responses/Item'}
+        '400': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+  /chat/threads/{id}/messages:
+    parameters: *idParameters
+    get:
+      <<: *list
+      operationId: listThreadMessages
+      summary: List messages in an accessible thread
+    post:
+      <<: *create
+      operationId: createThreadMessage
+      summary: Send a message as a current thread member
+  /chat/threads/{id}/membership:
+    parameters: *idParameters
+    delete: &membership
+      operationId: leaveChatThread
+      summary: Leave a thread unless the current user owns it
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Membership changed; owners cannot leave}
+        '403': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '409': {$ref: '#/components/responses/Error'}
+  /discover:
+    get:
+      operationId: discover
+      summary: Discover groups, people and businesses
+      description: Groups, people or shops; no fabricated geographic distances.
+      parameters:
+        - {$ref: '#/components/parameters/Limit'}
+        - {$ref: '#/components/parameters/Cursor'}
+        - {$ref: '#/components/parameters/Search'}
+        - in: query
+          name: type
+          schema: {type: string, enum: [groups, people, places, business], default: groups}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200': {$ref: '#/components/responses/Page'}
+  /shops:
+    get:
+      <<: *list
+      operationId: listShops
+      summary: List visible shops
+    post:
+      <<: *create
+      operationId: createShop
+      summary: Create an owned shop
+  /shops/{id}:
+    parameters: *idParameters
+    get: &getItem
+      operationId: getShop
+      summary: Read a visible shop
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200': {$ref: '#/components/responses/Item'}
+        '404': {$ref: '#/components/responses/Error'}
+  /shops/{id}/products:
+    parameters: *idParameters
+    get:
+      <<: *list
+      operationId: listShopProducts
+      summary: List products belonging to a visible shop
+    post:
+      operationId: createShopProduct
+      summary: Create a product as the shop owner
+      description: Shop owner only; name and MMK or USD currency mandatory.
+      requestBody: {$ref: '#/components/requestBodies/CreateItem'}
+      responses:
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '409': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '201': {$ref: '#/components/responses/Item'}
+        '400': {$ref: '#/components/responses/Error'}
+        '403': {$ref: '#/components/responses/Error'}
+  /groups:
+    get:
+      <<: *list
+      operationId: listGroups
+      summary: List groups visible to the current user
+    post:
+      <<: *create
+      operationId: createGroup
+      summary: Create a group and its owner membership
+  /groups/{id}:
+    parameters: *idParameters
+    get:
+      <<: *getItem
+      operationId: getGroup
+      summary: Read a visible group's metadata
+  /groups/{id}/posts:
+    parameters: *idParameters
+    get:
+      <<: *list
+      operationId: listGroupPosts
+      summary: List posts belonging to a visible group
+    post:
+      operationId: createGroupPost
+      summary: Create a post as a current group member
+      description: Current group members only may post.
+      requestBody: {$ref: '#/components/requestBodies/CreateItem'}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '201': {$ref: '#/components/responses/Item'}
+        '403': {$ref: '#/components/responses/Error'}
+  /groups/{id}/members:
+    parameters: *idParameters
+    get:
+      operationId: listGroupMembers
+      summary: List group members as a current member
+      description: Current group members only; returns public names and user IDs.
+      parameters:
+        - {$ref: '#/components/parameters/Limit'}
+        - {$ref: '#/components/parameters/Cursor'}
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '200': {$ref: '#/components/responses/Page'}
+        '403': {$ref: '#/components/responses/Error'}
+  /groups/{id}/join:
+    parameters: *idParameters
+    post:
+      operationId: joinGroup
+      summary: Join a public group idempotently
+      description: Join public group only. No private-group self-admission.
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Joined idempotently}
+        '403': {$ref: '#/components/responses/Error'}
+    delete:
+      <<: *membership
+      operationId: leaveGroup
+      summary: Leave a group unless the current user owns it
+  /items/{id}/like:
+    parameters: *idParameters
+    put: &relation
+      operationId: likeItem
+      summary: Like a visible item idempotently
+      responses:
+        '400': {$ref: '#/components/responses/Error'}
+        '401': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '204': {description: Idempotent relation change on a visible item}
+        '404': {$ref: '#/components/responses/Error'}
+    delete:
+      <<: *relation
+      operationId: unlikeItem
+      summary: Remove a like from a visible item
+  /items/{id}/save:
+    parameters: *idParameters
+    put:
+      <<: *relation
+      operationId: saveItem
+      summary: Save a visible item idempotently
+    delete:
+      <<: *relation
+      operationId: unsaveItem
+      summary: Remove a saved-item relation
+  /items/{id}/follow:
+    parameters: *idParameters
+    put:
+      <<: *relation
+      operationId: followItem
+      summary: Follow a visible item rather than a user
+    delete:
+      <<: *relation
+      operationId: unfollowItem
+      summary: Remove an item-follow relation
+components:
+  securitySchemes:
+    bearerAuth: {type: http, scheme: bearer, bearerFormat: JWT}
+  parameters:
+    ID: {in: path, name: id, required: true, schema: {type: integer, format: int64, minimum: 1}}
+    Limit: {in: query, name: limit, schema: {type: integer, minimum: 1, maximum: 100, default: 20}}
+    Cursor: {in: query, name: cursor, schema: {type: string}, description: 'Opaque base64url keyset cursor; empty next_cursor means end.'}
+    Search: {in: query, name: q, schema: {type: string, maxLength: 120}}
+  requestBodies:
+    CreateItem:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            description: >-
+              Kind, author and parent are server-derived from the route.
+              body required for posts, comments and messages; name required for
+              shops, groups and products. member_ids permitted only for threads.
+              Plain text only; clients must never render body/name as raw HTML.
+            properties:
+              name: {type: string, maxLength: 120}
+              body: {type: string, maxLength: 5000}
+              visibility: {type: string, enum: [public, private], default: public}
+              price_minor: {type: integer, format: int64, minimum: 0}
+              currency: {type: string, enum: [MMK, USD]}
+              member_ids: {type: array, maxItems: 49, items: {type: string}}
+  responses:
+    VerificationRequired:
+      description: Email verification required; includes unknown or mismatched devices
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [action]
+            additionalProperties: false
+            properties:
+              action: {type: string, enum: [REQUIRE_EMAIL_VERIFICATION]}
+    Tokens:
+      description: Fifteen-minute access JWT and opaque rotating refresh capability
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [jwt, refresh]
+            additionalProperties: false
+            properties:
+              jwt: {type: string}
+              refresh: {type: string}
+    Error:
+      description: Structured error; X-Request-ID is generated for every request
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [error, request_id]
+            properties:
+              error: {type: string, enum: [invalid_input, unauthorized, forbidden, not_found, conflict, rate_limited, internal_error]}
+              request_id: {type: string}
+    Item:
+      description: Persistent resource
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Item'}
+    Page:
+      description: Descending immutable ID keyset page, privacy filtered
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [items, next_cursor]
+            properties:
+              items: {type: array, items: {$ref: '#/components/schemas/Item'}}
+              next_cursor: {type: string}
+  schemas:
+    Activity:
+      type: object
+      required: [id, kind, read, created_at]
+      properties:
+        id: {type: integer, format: int64}
+        actor_id: {type: string}
+        target_id: {type: string}
+        item_id: {type: integer, format: int64}
+        kind: {type: string, enum: [follow, share, cart]}
+        body: {type: string}
+        quantity: {type: integer, minimum: 1, maximum: 99}
+        read: {type: boolean}
+        created_at: {type: string, format: date-time}
+    Phone: {type: string, pattern: '^\+[1-9][0-9]{7,14}$'}
+    Device:
+      type: string
+      pattern: '^[A-Za-z0-9_-]{16,128}$'
+      description: 'Use a fresh cryptographically random installation credential, at least 128 bits; never hardware IDs.'
+    User:
+      type: object
+      required: [id, email_verified, name, bio]
+      properties:
+        id: {type: string}
+        phone_number: {type: string}
+        email: {type: string, format: email}
+        email_verified: {type: boolean}
+        name: {type: string}
+        bio: {type: string}
+    Item:
+      type: object
+      required: [id, kind, created_at]
+      properties:
+        id: {type: integer, format: int64}
+        kind: {type: string, enum: [post, comment, shop, product, group, thread, message, person, member]}
+        author_id: {type: string, description: 'Public user ID for person/member results; never contact PII.'}
+        parent_id: {type: integer, format: int64}
+        name: {type: string}
+        body: {type: string}
+        visibility: {type: string, enum: [public, private]}
+        price_minor: {type: integer, format: int64}
+        currency: {type: string}
+        created_at: {type: string, format: date-time}

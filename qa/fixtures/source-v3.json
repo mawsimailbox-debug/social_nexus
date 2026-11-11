@@ -1,0 +1,1334 @@
+{
+  "source_md5": "a8fafd493261eda3876d79039c564e10",
+  "source_sha256": "caaceacf58f265cd24cc7423abe9b4fbee980b5ff771d442d68d7e63122d5040",
+  "kind": "prototype-only; not production identities or factual business data",
+  "screens": {
+    "feed": "\n      <div class=\"statusbar\">\n        <span>9:41</span>\n        <span class=\"right\">\n          <i class=\"material-icons\">signal_cellular_alt</i>\n          <i class=\"material-icons\">wifi</i>\n          <i class=\"material-icons\">battery_full</i>\n        </span>\n      </div>\n\n      <div class=\"feed-head\">\n        <div class=\"seg\">\n          <div class=\"s on\" data-filter=\"foryou\">For You</div>\n          <div class=\"s\" data-filter=\"nearby\"><span class=\"pin\">📍</span>Nearby</div>\n        </div>\n        <div class=\"search\" style=\"right:56px\"><i class=\"material-icons\">search</i></div>\n        <div class=\"bell\" id=\"bell\"><i class=\"material-icons\">notifications_none</i><span class=\"ndot\"></span></div>\n      </div>\n\n      <div class=\"feed-scroll\" id=\"feedScroll\">\n        <div class=\"sec-note\" id=\"secNote\"><i class=\"material-icons\">people_alt</i>Friends &amp; following first · then people within 2 km</div>\n\n        <!-- 1. video -->\n        <article class=\"post video\" data-id=\"p1\" data-score=\"62\" data-nearby=\"0\" data-friend=\"1\"\n                 data-reason=\"Because you follow <b>@sophie.jap</b>\">\n          <div class=\"hero\"></div>\n          <div class=\"scrim-b\"></div>\n          <div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">place</i>Ngwe Saung · Coast</span></div>\n          <div class=\"rail\">\n            <div class=\"rail-av\"><span class=\"plus\"><i class=\"material-icons\">add</i></span></div>\n            <div class=\"act like-btn\"><i class=\"material-icons\">favorite_border</i><span class=\"like-count\">12.4K</span></div>\n            <div class=\"act\" data-comment><i class=\"material-icons\">chat_bubble</i><span>1,208</span></div>\n            <div class=\"act\" data-save><i class=\"material-icons\">bookmark</i><span>8,342</span></div>\n            <div class=\"act\" data-share><i class=\"material-icons\">send</i><span>Share</span></div>\n            <div class=\"disc\"><i></i></div>\n          </div>\n          <div class=\"meta\">\n            <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>Because you follow <b>@sophie.jap</b></span></div>\n            <div class=\"name\">@sophie.jap</div>\n            <div class=\"cap\">Editorial video — shot by the lake at golden hour. No filter, just light.</div>\n            <div class=\"tags\">#editorial #suits #casual</div>\n            <div class=\"music\"><i class=\"material-icons\">music_note</i>Hozier — Too Sweet</div>\n          </div>\n        </article>\n\n        <!-- 2. feeling (highest activity) -->\n        <article class=\"post feel\" data-id=\"p2\" data-score=\"92\" data-nearby=\"1\" data-friend=\"1\"\n                 data-reason=\"Because you reacted to <b>@thiri.aung</b> 3 times this week\">\n          <div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">place</i>Friend · 1.2 km</span></div>\n          <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>Because you reacted to <b>@thiri.aung</b> 3 times this week</span></div>\n          <div class=\"mood\"><i class=\"material-icons\">wb_sunny</i>GRATEFUL</div>\n          <div class=\"quote\">Some evenings I just sit by the lake and let the day go. Nothing big happened today — and that felt like enough.</div>\n          <div class=\"feel-author\">\n            <div class=\"av\"></div>\n            <div>\n              <div class=\"who\">Thiri Aung</div>\n              <div class=\"sub\"><span>@thiri.aung</span> · <span>12 min</span> · <i class=\"material-icons\">place</i>Inya Lake</div>\n            </div>\n          </div>\n          <div class=\"pbar\">\n            <div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">892</span></div>\n            <div class=\"pb\" data-comment><i class=\"material-icons\">chat_bubble_outline</i><span class=\"cc\">42</span></div>\n            <div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">18</span></div>\n            <div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div>\n          </div>\n        </article>\n\n        <!-- 3. location -->\n        <article class=\"post loc\" data-id=\"p3\" data-score=\"74\" data-nearby=\"1\" data-friend=\"1\"\n                 data-reason=\"Popular with people near <b>Inya Lake</b>\">\n          <div class=\"hero\"></div>\n          <div class=\"scrim\"></div>\n          <div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">near_me</i>Following · 800 m</span></div>\n          <div class=\"meta\">\n            <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>Popular with people near <b>Inya Lake</b></span></div>\n            <div class=\"title\">Sunset at Inya Lake</div>\n            <div class=\"cap\">5 min walk from my place. Best light around 5:40pm — bring a jacket.</div>\n            <div class=\"actions\">\n              <button class=\"loc-btn solid\" data-toast=\"Opening map preview\"><i class=\"material-icons\">map</i>Open map</button>\n              <button class=\"loc-btn\" data-save><i class=\"material-icons\">bookmark_border</i>Save</button>\n            </div>\n            <div class=\"pbar\">\n              <div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">431</span></div>\n              <div class=\"pb\" data-comment><i class=\"material-icons\">chat_bubble_outline</i><span class=\"cc\">27</span></div>\n              <div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">11</span></div>\n              <div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div>\n            </div>\n          </div>\n        </article>\n\n        <!-- 4. feeling -->\n        <article class=\"post feel\" data-id=\"p4\" data-score=\"51\" data-nearby=\"1\" data-friend=\"1\"\n                 data-reason=\"Because <b>@nang.seng</b> follows you\">\n          <div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">place</i>Follower · 2.4 km</span></div>\n          <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>Because <b>@nang.seng</b> follows you</span></div>\n          <div class=\"mood\"><i class=\"material-icons\">nightlight</i>MISSING HOME</div>\n          <div class=\"quote\">Missing home today. Anyone else living far from family? Even a voice note would be enough.</div>\n          <div class=\"feel-author\">\n            <div class=\"av\" style=\"background-position:60% 30%\"></div>\n            <div>\n              <div class=\"who\">Nang Seng</div>\n              <div class=\"sub\"><span>@nang.seng</span> · <span>40 min</span> · <i class=\"material-icons\">place</i>Hledan</div>\n            </div>\n          </div>\n          <div class=\"pbar\">\n            <div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">1,204</span></div>\n            <div class=\"pb\" data-comment><i class=\"material-icons\">chat_bubble_outline</i><span class=\"cc\">88</span></div>\n            <div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">64</span></div>\n            <div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div>\n          </div>\n        </article>\n\n        <!-- 5. business promo -->\n        <article class=\"post promo\" data-id=\"p5\" data-score=\"70\" data-nearby=\"1\" data-friend=\"0\"\n                 data-reason=\"Business near you · <b>Shwe Kyaung Coffee</b>\">\n          <div class=\"hero\"></div>\n          <div class=\"scrim\"></div>\n          <div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">near_me</i>800 m · Open now</span></div>\n          <div class=\"meta\" style=\"padding-right:26px\">\n            <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>Business near you · <b>Shwe Kyaung Coffee</b></span></div>\n            <div class=\"promo-tag\" style=\"margin-bottom:12px\"><i class=\"material-icons\" style=\"font-size:13px\">local_offer</i>20% OFF BEFORE 10 AM</div>\n            <div style=\"font-size:19px;font-weight:800\">Shwe Kyaung Coffee</div>\n            <div class=\"cap\">Mohinga, laphet thoke and slow-brewed coffee. 4.8 ★ from 216 neighbours.</div>\n            <div class=\"actions\">\n              <button class=\"loc-btn solid\" data-go=\"business\"><i class=\"material-icons\">storefront</i>View shop</button>\n              <button class=\"loc-btn\" data-toast=\"Calling +95 9 771 234 567\"><i class=\"material-icons\">call</i>Call</button>\n            </div>\n            <div class=\"pbar\">\n              <div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">318</span></div>\n              <div class=\"pb\" data-comment><i class=\"material-icons\">chat_bubble_outline</i><span class=\"cc\">19</span></div>\n              <div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">42</span></div>\n              <div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div>\n            </div>\n          </div>\n        </article>\n\n        <!-- 6. group invite -->\n        <article class=\"post grpcard\" data-id=\"p6\" data-score=\"40\" data-nearby=\"1\" data-friend=\"0\"\n                 data-reason=\"A group <b>1.4k people</b> near you joined\">\n          <div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>A group <b>1.4k people</b> near you joined</span></div>\n          <div class=\"grpc\" data-go=\"group\">\n            <div class=\"th\"></div>\n            <div>\n              <div class=\"t\">Inya Lake Runners</div>\n              <div class=\"s\">1.4k members · Public · 2 km away<br>Weekly 6am runs around the lake</div>\n            </div>\n          </div>\n          <button class=\"join-btn\" data-toast=\"Joined Inya Lake Runners\">Join group</button>\n          <div class=\"pbar\" style=\"border-top:0\">\n            <div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">156</span></div>\n            <div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">9</span></div>\n            <div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div>\n          </div>\n        </article>\n      </div>\n\n      <nav class=\"tabbar\">\n        <div class=\"item on\" data-go=\"feed\"><i class=\"material-icons\">home</i></div>\n        <div class=\"item\" data-go=\"discover\"><i class=\"material-icons\">search</i></div>\n        <div class=\"item\" data-open-sheet><span class=\"create\"><i class=\"material-icons\">add</i></span></div>\n        <div class=\"item\" data-go=\"chat\"><i class=\"material-icons\">chat_bubble</i><span class=\"dot\"></span></div>\n        <div class=\"item\" data-go=\"profile\"><i class=\"material-icons\">person</i></div>\n      </nav>\n    ",
+    "chat": "\n      <div class=\"chat-head\">\n        <div class=\"back\" data-go=\"feed\"><i class=\"material-icons\">arrow_back_ios_new</i></div>\n        <div class=\"peer\"><span class=\"live\"></span></div>\n        <div class=\"peer-info\"><div class=\"n\">Sophie Jap</div><div class=\"s\">Active now</div></div>\n        <div class=\"calls\">\n          <i class=\"material-icons\" data-toast=\"Voice call\">call</i>\n          <i class=\"material-icons\" data-toast=\"Video call\">videocam</i>\n        </div>\n      </div>\n\n      <div class=\"stream\" id=\"stream\">\n        <div class=\"chip-t\">TODAY · 19:38</div>\n        <div class=\"bubble in\">Hey! Just watched the first cut. The golden hour shots by the arch are unreal.</div>\n        <div class=\"bubble in\">Can we post it tonight?</div>\n        <div class=\"chip-t\">19:41</div>\n        <div class=\"bubble out\">Yes, uploading now. Ten minutes.</div>\n        <div class=\"bubble out\">I also swapped in the new soundtrack — tell me if the intro feels too slow.</div>\n        <div class=\"seen\">Seen 19:42</div>\n        <div class=\"chip-t\">19:42</div>\n        <div class=\"bubble in\">Perfect. The slow intro works — it holds the shot.</div>\n        <div class=\"typing\" id=\"typing\"><i></i><i></i><i></i></div>\n      </div>\n\n      <div class=\"composer-bar\">\n        <div class=\"field2\">\n          <i class=\"material-icons\" data-toast=\"Attach\">add_circle_outline</i>\n          <input id=\"msgInput\" type=\"text\" placeholder=\"Message…\" autocomplete=\"off\">\n          <i class=\"material-icons\" data-toast=\"Emoji\">sentiment_satisfied_alt</i>\n        </div>\n        <div class=\"send\" id=\"sendBtn\"><i class=\"material-icons\">send</i></div>\n      </div>\n\n      <nav class=\"tabbar\">\n        <div class=\"item\" data-go=\"feed\"><i class=\"material-icons\">home</i></div>\n        <div class=\"item\" data-go=\"discover\"><i class=\"material-icons\">search</i></div>\n        <div class=\"item\" data-open-sheet><span class=\"create\"><i class=\"material-icons\">add</i></span></div>\n        <div class=\"item on\"><i class=\"material-icons\">chat_bubble</i><span class=\"dot\"></span></div>\n        <div class=\"item\" data-go=\"profile\"><i class=\"material-icons\">person</i></div>\n      </nav>\n    ",
+    "profile": "\n      <div class=\"cover\"></div>\n      <div class=\"statusbar\">\n        <span>9:41</span>\n        <span class=\"right\">\n          <i class=\"material-icons\">signal_cellular_alt</i>\n          <i class=\"material-icons\">wifi</i>\n          <i class=\"material-icons\">battery_full</i>\n        </span>\n      </div>\n      <div class=\"p-av\"></div>\n\n      <div class=\"p-body\">\n        <div class=\"p-name\">Sophie Jap</div>\n        <div class=\"p-handle\">@sophie.jap</div>\n        <div class=\"bio\">Editorial &amp; travel films. Iceland, mostly.<br>Shooting with natural light since 2019.</div>\n        <div class=\"biz-item\" data-go=\"business\">\n          <div class=\"bi-ic\"><i class=\"material-icons\">storefront</i></div>\n          <div>\n            <div class=\"bi-t\">Shwe Kyaung Coffee</div>\n            <div class=\"bi-s\">Business · Cafe · 800 m · 216 reviews</div>\n          </div>\n          <div class=\"bi-go\"><i class=\"material-icons\">chevron_right</i></div>\n        </div>\n        <div class=\"stats\">\n          <span><b>128</b>Following</span>\n          <span><b>8.4K</b>Followers</span>\n          <span><b>96.2K</b>Likes</span>\n        </div>\n        <div class=\"cta\">\n          <div class=\"btn\" data-toast=\"Edit profile\">Edit profile</div>\n          <div class=\"btn ghost\" data-toast=\"Share profile\"><i class=\"material-icons\">ios_share</i></div>\n        </div>\n        <div class=\"ptabs\">\n          <span class=\"on\" data-ptab=\"videos\">Videos</span>\n          <span data-ptab=\"liked\">Liked</span>\n          <span data-ptab=\"saved\">Saved</span>\n        </div>\n        <div class=\"grid\" id=\"grid\"></div>\n      </div>\n\n      <nav class=\"tabbar light\">\n        <div class=\"item\" data-go=\"feed\"><i class=\"material-icons\">home</i></div>\n        <div class=\"item\" data-go=\"discover\"><i class=\"material-icons\">search</i></div>\n        <div class=\"item\" data-open-sheet><span class=\"create\"><i class=\"material-icons\">add</i></span></div>\n        <div class=\"item\" data-go=\"chat\"><i class=\"material-icons\">chat_bubble</i><span class=\"dot\"></span></div>\n        <div class=\"item on\"><i class=\"material-icons\">person</i></div>\n      </nav>\n    ",
+    "discover": "\n      <div class=\"ds-head\">\n        <div class=\"ds-title\">Discover</div>\n        <div class=\"ds-search\">\n          <i class=\"material-icons\">search</i>\n          <input id=\"dsInput\" type=\"text\" placeholder=\"Groups, people, places near you\">\n        </div>\n      </div>\n\n      <div class=\"ds-tabs\">\n        <div class=\"ds-tab on\" data-dstab=\"groups\">Groups</div>\n        <div class=\"ds-tab\" data-dstab=\"people\">People</div>\n        <div class=\"ds-tab\" data-dstab=\"places\">Places</div>\n        <div class=\"ds-tab\" data-dstab=\"business\">Business</div>\n      </div>\n\n      <div class=\"btype\" id=\"btype\" style=\"display:none\">\n        <div class=\"bt on\" data-btype=\"all\">All</div>\n        <div class=\"bt\" data-btype=\"cafe\">Cafe</div>\n        <div class=\"bt\" data-btype=\"food\">Food</div>\n        <div class=\"bt\" data-btype=\"service\">Services</div>\n        <div class=\"bt\" data-btype=\"fashion\">Fashion</div>\n      </div>\n\n      <div class=\"ds-list\" id=\"dsList\">\n        <!-- groups -->\n        <div class=\"ds-card\" data-tab=\"groups\">\n          <div class=\"thumb icon\"  style=\"background-position:38% 62%\"><i class=\"material-icons\">diversity_3</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Inya Lake Runners</div>\n            <div class=\"s\">1.4k members · Public · 2 km away</div>\n          </div>\n          <button class=\"mini-btn on\" data-toggle-join>Joined</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"groups\">\n          <div class=\"thumb icon\"  style=\"background-position:60% 30%\"><i class=\"material-icons\">photo_library</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Yangon Film Photographers</div>\n            <div class=\"s\">8.2k members · Public · 3.1 km away</div>\n          </div>\n          <button class=\"mini-btn\" data-toggle-join>Join</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"groups\">\n          <div class=\"thumb icon\"  style=\"background-position:45% 55%\"><i class=\"material-icons\">restaurant</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Home Cooks of Yangon</div>\n            <div class=\"s\">3.1k members · Private · 1.8 km away</div>\n          </div>\n          <button class=\"mini-btn\" data-toggle-join>Join</button>\n        </div>\n\n        <!-- people -->\n\n        <div class=\"ds-card\" data-tab=\"people\">\n          <div class=\"thumb ini\"  style=\"border-radius:50%;background-position:52% 12%\">TA</div>\n          <div class=\"body\">\n            <div class=\"t\">Thiri Aung</div>\n\n            <div class=\"s\">1.2 km away · 6 mutual · photography, coffee</div>\n          </div>\n          <button class=\"mini-btn\" data-toggle-join>Follow</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"people\">\n          <div class=\"thumb ini\"  style=\"border-radius:50%;background-position:40% 20%\">KZ</div>\n          <div class=\"body\">\n            <div class=\"t\">Kyaw Zin</div>\n            <div class=\"s\">800 m away · 3 mutual · running, film</div>\n          </div>\n          <button class=\"mini-btn\" data-toggle-join>Follow</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"people\">\n          <div class=\"thumb ini\"  style=\"border-radius:50%;background-position:62% 18%\">NS</div>\n          <div class=\"body\">\n            <div class=\"t\">Nang Seng</div>\n            <div class=\"s\">2.4 km away · 2 mutual · cooking, travel</div>\n          </div>\n          <button class=\"mini-btn\" data-toggle-join>Follow</button>\n        </div>\n\n        <!-- places -->\n        <div class=\"ds-card\" data-tab=\"places\" data-go=\"business\">\n          <div class=\"thumb icon\" ><i class=\"material-icons\">storefront</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Shwe Kyaung Coffee <span class=\"vbadge\"><i class=\"material-icons\">check</i></span></div>\n            <div class=\"s\">4.8 &#9733; (216) · Open · 800 m</div>\n          </div>\n          <button class=\"mini-btn\">View</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"places\">\n          <div class=\"thumb icon\"  style=\"background-position:70% 50%\"><i class=\"material-icons\">sailing</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Inya Lake Boats</div>\n            <div class=\"s\">4.5 &#9733; (98) · Closed · 1.4 km</div>\n          </div>\n          <button class=\"mini-btn\" data-toast=\"Shop page coming soon\">View</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"places\">\n          <div class=\"thumb icon\"  style=\"background-position:30% 70%\"><i class=\"material-icons\">storefront</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Hledan Night Market</div>\n            <div class=\"s\">4.6 &#9733; (512) · Open · 2.2 km</div>\n          </div>\n          <button class=\"mini-btn\" data-toast=\"Shop page coming soon\">View</button>\n        </div>\n\n        <!-- business -->\n        <div class=\"ds-card\" data-tab=\"business\" data-btype=\"cafe\" data-go=\"business\">\n          <div class=\"thumb icon\"><i class=\"material-icons\">local_cafe</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Shwe Kyaung Coffee <span class=\"vbadge\"><i class=\"material-icons\">check</i></span></div>\n            <div class=\"s\">Cafe · 4.8 ★ · Open · 800 m · 3 posts this week</div>\n          </div>\n          <button class=\"mini-btn\">View</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"business\" data-btype=\"service\" data-toast=\"Shop page coming soon\">\n          <div class=\"thumb icon\"><i class=\"material-icons\">pedal_bike</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Yangon Bike Repair</div>\n            <div class=\"s\">Service · 4.6 ★ · Open · 1.1 km · 1 post this week</div>\n          </div>\n          <button class=\"mini-btn\">View</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"business\" data-btype=\"food\" data-toast=\"Shop page coming soon\">\n          <div class=\"thumb icon\"><i class=\"material-icons\">storefront</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Hledan Night Market</div>\n            <div class=\"s\">Food · 4.6 ★ · Closed · 2.2 km · 6 posts this week</div>\n          </div>\n          <button class=\"mini-btn\">View</button>\n        </div>\n        <div class=\"ds-card\" data-tab=\"business\" data-btype=\"fashion\" data-toast=\"Shop page coming soon\">\n          <div class=\"thumb icon\"><i class=\"material-icons\">checkroom</i></div>\n          <div class=\"body\">\n            <div class=\"t\">Ponnya Thiri Tailor</div>\n            <div class=\"s\">Fashion · 4.9 ★ · Open · 1.6 km · 2 posts this week</div>\n          </div>\n          <button class=\"mini-btn\">View</button>\n        </div>\n      </div>\n\n      <nav class=\"tabbar\">\n        <div class=\"item\" data-go=\"feed\"><i class=\"material-icons\">home</i></div>\n        <div class=\"item on\"><i class=\"material-icons\">search</i></div>\n        <div class=\"item\" data-open-sheet><span class=\"create\"><i class=\"material-icons\">add</i></span></div>\n        <div class=\"item\" data-go=\"chat\"><i class=\"material-icons\">chat_bubble</i><span class=\"dot\"></span></div>\n        <div class=\"item\" data-go=\"profile\"><i class=\"material-icons\">person</i></div>\n      </nav>\n    ",
+    "business": "\n      <div class=\"biz-scroll\">\n        <div class=\"biz-cover\">\n          <div class=\"biz-back\" data-go=\"discover\"><i class=\"material-icons\">arrow_back_ios_new</i></div>\n          <div class=\"biz-logo\">SK</div>\n        </div>\n\n        <div class=\"biz-head\">\n          <div class=\"biz-name\">Shwe Kyaung Coffee\n            <span class=\"vbadge\"><i class=\"material-icons\">check</i></span>\n          </div>\n          <div class=\"biz-sub\">Cafe &amp; tea shop <span class=\"sep\">·</span>\n            <span><span class=\"open-dot\"></span> Open</span> <span class=\"sep\">·</span> closes 21:00\n          </div>\n          <div class=\"biz-sub\"><span>4.8 &#9733; (216)</span><span class=\"sep\">·</span>\n            <span>800 m away</span><span class=\"sep\">·</span><span>1.2k followers</span></div>\n        </div>\n\n        <div class=\"quick\">\n          <div class=\"qbtn\" data-toast=\"Calling +95 9 771 234 567\"><i class=\"material-icons\">call</i><span>Call</span></div>\n          <div class=\"qbtn\" data-toast=\"Opening directions\"><i class=\"material-icons\">directions</i><span>Directions</span></div>\n          <div class=\"qbtn\" data-toast=\"Chat with the shop\"><i class=\"material-icons\">chat_bubble</i><span>Message</span></div>\n          <div class=\"qbtn\" data-toast=\"Saved to your places\"><i class=\"material-icons\">bookmark_border</i><span>Save</span></div>\n        </div>\n\n        <div class=\"sec\">\n          <div class=\"sec-t\">CONTACT &amp; HOURS</div>\n          <div class=\"info-card\">\n            <div class=\"info-row\" data-toast=\"Calling +95 9 771 234 567\">\n              <i class=\"material-icons\">call</i>\n              <div><div class=\"l1\">+95 9 771 234 567</div><div class=\"l2\">Tap to call · replies within 10 min</div></div>\n              <div class=\"go\"><i class=\"material-icons\">chevron_right</i></div>\n            </div>\n            <div class=\"info-row\" data-toast=\"Opening map — 24 Inya Road, Yangon\">\n              <i class=\"material-icons\">place</i>\n              <div><div class=\"l1\">24 Inya Road, Bahan, Yangon</div><div class=\"l2\">800 m · 10 min walk from the lake</div></div>\n              <div class=\"go\"><i class=\"material-icons\">chevron_right</i></div>\n            </div>\n            <div class=\"info-row\" data-toast=\"Hours: Mon–Sun, 07:00–21:00\">\n              <i class=\"material-icons\">schedule</i>\n              <div><div class=\"l1\">Open today · 07:00 – 21:00</div><div class=\"l2\">Mon – Sun · kitchen closes 20:30</div></div>\n              <div class=\"go\"><i class=\"material-icons\">chevron_right</i></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"sec\">\n          <div class=\"sec-t\">PRICE LIST · TODAY</div>\n          <div class=\"price-list\">\n            <div class=\"price-row\">\n              <div class=\"pic icon\" ><i class=\"material-icons\">ramen_dining</i></div>\n              <div><div class=\"nm\">Mohinga</div><div class=\"sub\">Breakfast · until 11:00</div></div>\n              <div class=\"amt\">2,500 K</div>\n              <button class=\"add-btn\" data-toast=\"Mohinga added to your order\"><i class=\"material-icons\">add</i></button>\n            </div>\n            <div class=\"price-row\">\n              <div class=\"pic icon\"  style=\"background-position:38% 62%\"><i class=\"material-icons\">rice_bowl</i></div>\n              <div><div class=\"nm\">Laphet thoke</div><div class=\"sub\">Tea leaf salad · mild</div></div>\n              <div class=\"amt\">3,000 K</div>\n              <button class=\"add-btn\" data-toast=\"Laphet thoke added\"><i class=\"material-icons\">add</i></button>\n            </div>\n            <div class=\"price-row\">\n              <div class=\"pic icon\"  style=\"background-position:70% 45%\"><i class=\"material-icons\">local_cafe</i></div>\n              <div><div class=\"nm\">Iced latte</div><div class=\"sub\">House blend · 20% off before 10:00</div></div>\n              <div class=\"amt\">4,200 K</div>\n              <button class=\"add-btn\" data-toast=\"Iced latte added\"><i class=\"material-icons\">add</i></button>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"sec\">\n          <div class=\"sec-t\">PHOTOS</div>\n          <div class=\"gallery\">\n            <div></div>\n            <div style=\"background-position:38% 62%\"></div>\n            <div style=\"background-position:70% 30%\"></div>\n            <div style=\"background-position:25% 55%\"></div>\n          </div>\n        </div>\n\n        <div class=\"sec\">\n          <div class=\"sec-t\">NEIGHBOURS SAY</div>\n          <div class=\"rev\">\n            <div class=\"top\"><div class=\"who\">Thiri Aung</div><div class=\"stars\">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>\n            <div class=\"txt\">Quiet corner, good light and the mohinga is worth waking up for.</div>\n          </div>\n          <div class=\"rev\">\n            <div class=\"top\"><div class=\"who\">Kyaw Zin</div><div class=\"stars\">&#9733;&#9733;&#9733;&#9733;&#9734;</div></div>\n            <div class=\"txt\">Fast service before 9am. Ask for the corner table by the window.</div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"biz-cta\">\n        <button class=\"c1\" data-toast=\"Calling +95 9 771 234 567\">Call shop</button>\n        <button class=\"c2\" data-toast=\"Opening directions\">Directions</button>\n      </div>\n    ",
+    "group": "\n      <div class=\"biz-scroll\" style=\"padding-bottom:176px\">\n        <div class=\"grp-cover\">\n          <div class=\"biz-back\" data-go=\"discover\"><i class=\"material-icons\">arrow_back_ios_new</i></div>\n        </div>\n\n        <div class=\"grp-head\">\n          <div class=\"grp-name\">Inya Lake Runners</div>\n          <div class=\"grp-meta\">1.4k members · Public group · 2 km away</div>\n          <div class=\"avatars\">\n            <i class=\"ini\">TA</i><i class=\"ini\">KZ</i><i class=\"ini\">NS</i><i class=\"ini\">AM</i>\n            <span>+ 1.4k members</span>\n          </div>\n          <button class=\"join-btn\" id=\"grpJoin\" style=\"width:100%;margin-top:14px\">Join group</button>\n          <div class=\"leave-link\" id=\"grpLeave\">Leave this group</div>\n          <div class=\"about\">We run 5 km around the lake every Saturday at 6am. All paces welcome —\n            walkers, first-timers and people who just want coffee afterwards.</div>\n\n          <div class=\"sec\" style=\"padding:16px 0 0\">\n            <div class=\"sec-t\">GROUP RULES</div>\n            <ul class=\"rules\">\n              <li><b>01</b><span>Show up, or tell us you can't — no silent no-shows.</span></li>\n              <li><b>02</b><span>Keep photos of members inside the group.</span></li>\n              <li><b>03</b><span>No selling. Recommendations are fine, ads are not.</span></li>\n            </ul>\n          </div>\n\n          <div class=\"sec\" style=\"padding:16px 0 0\">\n            <div class=\"sec-t\">RECENT IN THE GROUP</div>\n            <div class=\"feed-row\" data-toast=\"Opening post\">\n              <div class=\"av ini\">TA</div>\n              <div><div class=\"t\">Thiri Aung · 2h</div>\n                <div class=\"s\">Saturday route is 5.2 km this week — meet at the north gate, 5:45am.</div></div>\n            </div>\n\n            <div class=\"feed-row\" data-toast=\"Opening post\">\n              <div class=\"av ini\">NS</div>\n              <div><div class=\"t\">Nang Seng · 5h</div>\n                <div class=\"s\">Photos from last week are up. Tag yourself if you want.</div></div>\n            </div>\n            <div class=\"feed-row\" data-toast=\"Member list\">\n              <div class=\"av ini\">KZ</div>\n              <div><div class=\"t\">Find members</div>\n                <div class=\"s\">Search 1.4k members by name or interest.</div></div>\n            </div>\n          </div>\n        </div>\n      </div>\n    "
+  },
+  "interaction_elements": [
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip on",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "data-go": "chat"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "data-go": "profile"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "data-go": "business"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "data-go": "group"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "chip",
+        "id": "openSheetTop"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen feed active",
+        "id": "feed"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "s on",
+        "data-filter": "foryou"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "s",
+        "data-filter": "nearby"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bell",
+        "id": "bell"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "feed-scroll",
+        "id": "feedScroll"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sec-note",
+        "id": "secNote"
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post video",
+        "data-id": "p1",
+        "data-score": "62",
+        "data-nearby": "0",
+        "data-friend": "1",
+        "data-reason": "Because you follow <b>@sophie.jap</b>"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "act",
+        "data-comment": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "act",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "act",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post feel",
+        "data-id": "p2",
+        "data-score": "92",
+        "data-nearby": "1",
+        "data-friend": "1",
+        "data-reason": "Because you reacted to <b>@thiri.aung</b> 3 times this week"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-react": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-comment": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb save",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post loc",
+        "data-id": "p3",
+        "data-score": "74",
+        "data-nearby": "1",
+        "data-friend": "1",
+        "data-reason": "Popular with people near <b>Inya Lake</b>"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "loc-btn solid",
+        "data-toast": "Opening map preview"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "loc-btn",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-react": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-comment": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb save",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post feel",
+        "data-id": "p4",
+        "data-score": "51",
+        "data-nearby": "1",
+        "data-friend": "1",
+        "data-reason": "Because <b>@nang.seng</b> follows you"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-react": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-comment": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb save",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post promo",
+        "data-id": "p5",
+        "data-score": "70",
+        "data-nearby": "1",
+        "data-friend": "0",
+        "data-reason": "Business near you · <b>Shwe Kyaung Coffee</b>"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "loc-btn solid",
+        "data-go": "business"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "loc-btn",
+        "data-toast": "Calling +95 9 771 234 567"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-react": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-comment": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb save",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "article",
+      "attributes": {
+        "class": "post grpcard",
+        "data-id": "p6",
+        "data-score": "40",
+        "data-nearby": "1",
+        "data-friend": "0",
+        "data-reason": "A group <b>1.4k people</b> near you joined"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "grpc",
+        "data-go": "group"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "join-btn",
+        "data-toast": "Joined Inya Lake Runners"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-react": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb",
+        "data-share": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "pb save",
+        "data-save": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item on",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-open-sheet": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "chat"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "profile"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen chat",
+        "id": "chat"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "back",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "i",
+      "attributes": {
+        "class": "material-icons",
+        "data-toast": "Voice call"
+      }
+    },
+    {
+      "tag": "i",
+      "attributes": {
+        "class": "material-icons",
+        "data-toast": "Video call"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "stream",
+        "id": "stream"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "typing",
+        "id": "typing"
+      }
+    },
+    {
+      "tag": "i",
+      "attributes": {
+        "class": "material-icons",
+        "data-toast": "Attach"
+      }
+    },
+    {
+      "tag": "input",
+      "attributes": {
+        "id": "msgInput",
+        "type": "text",
+        "placeholder": "Message…",
+        "autocomplete": "off"
+      }
+    },
+    {
+      "tag": "i",
+      "attributes": {
+        "class": "material-icons",
+        "data-toast": "Emoji"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "send",
+        "id": "sendBtn"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-open-sheet": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "profile"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen profile",
+        "id": "profile"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "biz-item",
+        "data-go": "business"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "btn",
+        "data-toast": "Edit profile"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "btn ghost",
+        "data-toast": "Share profile"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "class": "on",
+        "data-ptab": "videos"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "data-ptab": "liked"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "data-ptab": "saved"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "grid",
+        "id": "grid"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-open-sheet": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "chat"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen discover",
+        "id": "discover"
+      }
+    },
+    {
+      "tag": "input",
+      "attributes": {
+        "id": "dsInput",
+        "type": "text",
+        "placeholder": "Groups, people, places near you"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-tab on",
+        "data-dstab": "groups"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-tab",
+        "data-dstab": "people"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-tab",
+        "data-dstab": "places"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-tab",
+        "data-dstab": "business"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "btype",
+        "id": "btype",
+        "style": "display:none"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bt on",
+        "data-btype": "all"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bt",
+        "data-btype": "cafe"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bt",
+        "data-btype": "food"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bt",
+        "data-btype": "service"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "bt",
+        "data-btype": "fashion"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-list",
+        "id": "dsList"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "groups"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn on",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "groups"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "groups"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "people"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "people"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "people"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toggle-join": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "places",
+        "data-go": "business"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "places"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toast": "Shop page coming soon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "places"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "mini-btn",
+        "data-toast": "Shop page coming soon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "business",
+        "data-btype": "cafe",
+        "data-go": "business"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "business",
+        "data-btype": "service",
+        "data-toast": "Shop page coming soon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "business",
+        "data-btype": "food",
+        "data-toast": "Shop page coming soon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "ds-card",
+        "data-tab": "business",
+        "data-btype": "fashion",
+        "data-toast": "Shop page coming soon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "feed"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-open-sheet": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "chat"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "item",
+        "data-go": "profile"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen biz",
+        "id": "business"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "biz-back",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "qbtn",
+        "data-toast": "Calling +95 9 771 234 567"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "qbtn",
+        "data-toast": "Opening directions"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "qbtn",
+        "data-toast": "Chat with the shop"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "qbtn",
+        "data-toast": "Saved to your places"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "info-row",
+        "data-toast": "Calling +95 9 771 234 567"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "info-row",
+        "data-toast": "Opening map — 24 Inya Road, Yangon"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "info-row",
+        "data-toast": "Hours: Mon–Sun, 07:00–21:00"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "add-btn",
+        "data-toast": "Mohinga added to your order"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "add-btn",
+        "data-toast": "Laphet thoke added"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "add-btn",
+        "data-toast": "Iced latte added"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "c1",
+        "data-toast": "Calling +95 9 771 234 567"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "c2",
+        "data-toast": "Opening directions"
+      }
+    },
+    {
+      "tag": "section",
+      "attributes": {
+        "class": "screen grp",
+        "id": "group"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "biz-back",
+        "data-go": "discover"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "join-btn",
+        "id": "grpJoin",
+        "style": "width:100%;margin-top:14px"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "leave-link",
+        "id": "grpLeave"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "feed-row",
+        "data-toast": "Opening post"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "feed-row",
+        "data-toast": "Opening post"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "feed-row",
+        "data-toast": "Member list"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "scrim-sheet",
+        "id": "scrim"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sheet",
+        "id": "sheet"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "type on",
+        "data-type": "feel"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "type",
+        "data-type": "photo"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "type",
+        "data-type": "loc"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "type",
+        "data-type": "biz"
+      }
+    },
+    {
+      "tag": "textarea",
+      "attributes": {
+        "id": "postText",
+        "maxlength": "200",
+        "placeholder": "Share why you feel grateful…"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "id": "charCount"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "moods",
+        "id": "moods"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mood-chip on",
+        "data-mood": "Grateful"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mood-chip",
+        "data-mood": "Hopeful"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mood-chip",
+        "data-mood": "Missing home"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mood-chip",
+        "data-mood": "Tired"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mood-chip",
+        "data-mood": "Proud"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "loc-row",
+        "data-toast": "Location picker — Inya Lake, Yangon"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "class": "post-btn",
+        "id": "submitPost",
+        "disabled": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sheet",
+        "id": "shareSheet"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sheet-x",
+        "id": "shareClose"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "hint",
+        "id": "shareHint"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "class": "u",
+        "id": "shareUrl"
+      }
+    },
+    {
+      "tag": "button",
+      "attributes": {
+        "id": "copyLink"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i own",
+        "data-share-own": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-out": "Messenger"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-out": "Viber"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-out": "Telegram"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-out": "Facebook"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-out": "Copy text"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-save": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sh-i",
+        "data-share-qr": null
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sheet",
+        "id": "cmSheet"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "sheet-x",
+        "id": "cmClose"
+      }
+    },
+    {
+      "tag": "span",
+      "attributes": {
+        "id": "cmCount",
+        "style": "color:#93928F;font-weight:600"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "hint",
+        "id": "cmOn"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "cm-list",
+        "id": "cmList"
+      }
+    },
+    {
+      "tag": "input",
+      "attributes": {
+        "id": "cmInput",
+        "type": "text",
+        "placeholder": "Write a reply…"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "snd",
+        "id": "cmSend"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "npanel",
+        "id": "npanel"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "mk",
+        "id": "markAll"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "x",
+        "id": "npClose"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np-list",
+        "id": "npList"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np unread",
+        "data-np": "comment"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np unread",
+        "data-np": "react"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np unread",
+        "data-np": "share"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np",
+        "data-np": "group"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "np",
+        "data-np": "biz"
+      }
+    },
+    {
+      "tag": "div",
+      "attributes": {
+        "class": "toast",
+        "id": "toast"
+      }
+    }
+  ],
+  "script_source": "\n(function(){\n  var repostTarget=null;\n  var screens={feed:document.getElementById('feed'),chat:document.getElementById('chat'),profile:document.getElementById('profile'),discover:document.getElementById('discover'),business:document.getElementById('business'),group:document.getElementById('group')};\n  var chips=document.querySelectorAll('.chip');\n  function go(n){\n    Object.keys(screens).forEach(function(k){screens[k].classList.toggle('active',k===n);});\n    chips.forEach(function(c){if(c.dataset.go)c.classList.toggle('on',c.dataset.go===n);});\n    if(n==='chat'){var s=document.getElementById('stream');s.scrollTop=s.scrollHeight;}\n  }\n\n  var toastEl=document.getElementById('toast'),tid;\n  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');\n    clearTimeout(tid);tid=setTimeout(function(){toastEl.classList.remove('show');},1800);}\n\n  document.addEventListener('click',function(e){\n    var g=e.target.closest('[data-go]'); if(g){go(g.dataset.go);return;}\n    var t=e.target.closest('[data-toast]'); if(t){toast(t.dataset.toast);return;}\n  });\n\n  /* ---------- sheet ---------- */\n  var sheet=document.getElementById('sheet'),scrim=document.getElementById('scrim');\n  function openSheet(){sheet.classList.add('show');scrim.classList.add('show');}\n  function closeSheet(){sheet.classList.remove('show');scrim.classList.remove('show');}\n  document.querySelectorAll('[data-open-sheet]').forEach(function(el){el.addEventListener('click',openSheet);});\n  document.getElementById('openSheetTop').addEventListener('click',openSheet);\n  scrim.addEventListener('click',function(){closeSheet();closeShare();closeCm();});\n\n  /* type switch */\n  var curType='feel';\n  document.querySelectorAll('.type[data-type]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('.type').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); curType=el.dataset.type;\n      document.getElementById('submitPost').textContent =\n        curType==='feel' ? 'Post to Nearby' : (curType==='loc' ? 'Share this place' : 'Post photo');\n      ta.placeholder = curType==='feel' ? ('Share why you feel ' + mood.toLowerCase() + '\\u2026')\n                     : curType==='loc' ? 'What makes this place worth a visit?'\n                     : 'Add a caption for your photo\\u2026';\n    });\n  });\n  document.querySelectorAll('[data-soon]').forEach(function(el){\n    el.addEventListener('click',function(){toast('Business pages arrive in v3');});\n  });\n\n  /* moods */\n  var mood='Grateful';\n  document.querySelectorAll('.mood-chip').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('.mood-chip').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); mood=el.dataset.mood;\n      ta.placeholder = 'Share why you feel ' + mood.toLowerCase() + '\\u2026';\n    });\n  });\n\n  /* counter + enable */\n  var ta=document.getElementById('postText'),cc=document.getElementById('charCount'),\n      submit=document.getElementById('submitPost');\n  ta.addEventListener('input',function(){\n    cc.textContent=ta.value.length;\n    submit.disabled = ta.value.trim().length<3;\n  });\n\n  /* reactions */\n  document.querySelectorAll('[data-rx]').forEach(function(el){\n    el.addEventListener('click',function(){\n      var on=el.classList.toggle('on'), c=el.querySelector('.c');\n      var n=parseInt(c.textContent.replace(/,/g,''),10)||0;\n      c.textContent=(n+(on?1:-1)).toLocaleString('en-US');\n    });\n  });\n\n  /* hug */\n  document.querySelectorAll('[data-hug]').forEach(function(btn){\n    btn.addEventListener('click',function(){\n      if(btn.classList.contains('done'))return;\n      btn.classList.add('done'); btn.textContent='🤗 Hug sent';\n      toast('A hug was sent — quietly, no notification');\n    });\n  });\n\n  /* feed filter */\n  var filter='foryou';\n  document.querySelectorAll('[data-filter]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('[data-filter]').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); filter=el.dataset.filter;\n      document.querySelectorAll('.post').forEach(function(p){\n        var show = filter==='foryou' || p.dataset.nearby==='1';\n        p.style.display = show ? '' : 'none';\n      });\n      document.getElementById('feedScroll').scrollTop=0;\n      toast(filter==='nearby' ? 'Showing posts within 2 km' : 'Mixed feed — video, feelings, places');\n    });\n  });\n\n  /* submit post */\n  submit.addEventListener('click',function(){\n    var text=ta.value.trim(); if(!text)return;\n    if(repostTarget){\n      var rp=document.createElement('article');\n      rp.className='post feel'; rp.dataset.nearby='1'; rp.dataset.score='99';\n      rp.innerHTML='<div class=\"why\"><i class=\"material-icons\">auto_awesome</i><span>You shared this with your followers</span></div>'+\n        '<div class=\"quote\"></div>'+\n        '<div class=\"shared-preview\"><div class=\"sp-w\"></div><div class=\"sp-t\"></div></div>'+\n        '<div class=\"feel-author\"><div class=\"av\"></div><div><div class=\"who\">You</div>'+\n        '<div class=\"sub\"><span>@you</span> · <span>just now</span> · <i class=\"material-icons\">place</i>Inya Lake</div></div></div>'+\n        '<div class=\"pbar\"><div class=\"pb\" data-react><i class=\"material-icons\">favorite_border</i><span class=\"rc\">0</span></div>'+\n        '<div class=\"pb\" data-comment><i class=\"material-icons\">chat_bubble_outline</i><span class=\"cc\">0</span></div>'+\n        '<div class=\"pb\" data-share><i class=\"material-icons\">ios_share</i><span class=\"sc\">0</span></div>'+\n        '<div class=\"pb save\" data-save><i class=\"material-icons\">bookmark_border</i></div></div>';\n      rp.querySelector('.quote').textContent=text;\n      rp.querySelector('.sp-w').textContent='Originally by '+repostTarget.author;\n      rp.querySelector('.sp-t').textContent=repostTarget.snippet;\n      feedScroll.insertBefore(rp,feedScroll.firstChild);\n      posts.unshift(rp);\n      ta.value=''; cc.textContent='0'; submit.disabled=true; repostTarget=null;\n      document.querySelector('#sheet h3').textContent='Share something';\n      document.querySelector('#sheet .hint').textContent='Two taps is enough. Pick a type, write one line.';\n      document.getElementById('submitPost').textContent='Post to Nearby';\n      closeSheet(); go('feed'); feedScroll.scrollTop=0;\n      toast('Shared to your profile · credit kept');\n      return;\n    }\n    var el=document.createElement('article');\n    el.className='post feel'; el.dataset.type='feel'; el.dataset.nearby='1';\n    el.innerHTML=\n      '<div class=\"top-tag\"><span class=\"loc-pill\"><i class=\"material-icons\">place</i>JUST NOW · 0 m</span></div>'+\n      '<div class=\"mood\"><i class=\"material-icons\">auto_awesome</i>'+mood.toUpperCase()+'</div>'+\n      '<div class=\"quote\"></div>'+\n      '<div class=\"feel-author\"><div class=\"av ini\">TA</div><div>'+\n        '<div class=\"who\">You</div>'+\n        '<div class=\"sub\"><span>@you</span> · <span>just now</span> · <i class=\"material-icons\">place</i>Inya Lake</div>'+\n      '</div></div>'+\n      '<div class=\"react-row\">'+\n        '<div class=\"rx\" data-rx><em>❤️</em><span class=\"c\">0</span></div>'+\n        '<div class=\"rx\" data-rx><em>🤗</em><span class=\"c\">0</span></div>'+\n        '<div class=\"rx\" data-rx><em>💪</em><span class=\"c\">0</span></div>'+\n      '</div>'+\n      '<button class=\"hug\" data-hug>🤗 Send a hug</button>';\n    el.querySelector('.quote').textContent=text;\n    var scroll=document.getElementById('feedScroll');\n    scroll.insertBefore(el,scroll.firstChild);\n    scroll.scrollTop=0;\n    ta.value=''; cc.textContent='0'; submit.disabled=true;\n    closeSheet(); go('feed');\n    toast('Posted · visible to people within 2 km');\n    el.querySelectorAll('[data-rx]').forEach(function(x){\n      x.addEventListener('click',function(){\n        var on=x.classList.toggle('on'),c=x.querySelector('.c');\n        var n=parseInt(c.textContent,10)||0;c.textContent=n+(on?1:-1);\n      });\n    });\n    el.querySelector('[data-hug]').addEventListener('click',function(){\n      if(this.classList.contains('done'))return;\n      this.classList.add('done');this.textContent='🤗 Hug sent';\n    });\n  });\n\n  /* like on video */\n  document.querySelectorAll('.like-btn').forEach(function(b){\n    b.addEventListener('click',function(){\n      var on=b.classList.toggle('on'), ic=b.querySelector('.material-icons'), c=b.querySelector('.like-count');\n      ic.textContent=on?'favorite':'favorite_border';\n      c.textContent=on?'12.5K':'12.4K';\n    });\n  });\n\n  /* discover tabs + search */\n  var dsCards=Array.prototype.slice.call(document.querySelectorAll('.ds-card'));\n  var dsTab='groups';\n  function applyDs(){\n    var q=(document.getElementById('dsInput').value||'').trim().toLowerCase();\n    dsCards.forEach(function(c){\n      var okTab=(c.dataset.tab===dsTab), okQ=(!q||c.textContent.toLowerCase().indexOf(q)>-1);\n      c.style.display=(okTab&&okQ)?'':'none';\n    });\n  }\n  document.querySelectorAll('[data-dstab]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('[data-dstab]').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); dsTab=el.dataset.dstab; applyDs();\n    });\n  });\n  document.getElementById('dsInput').addEventListener('input',applyDs);\n  applyDs();\n\n  /* follow / join toggles */\n  document.querySelectorAll('[data-toggle-join]').forEach(function(b){\n    b.addEventListener('click',function(e){\n      e.stopPropagation();\n      var on=b.classList.toggle('on');\n      var label=b.textContent.trim();\n      if(label==='Joined'||label==='Following'){ b.textContent=on?'Joined':'Join'; }\n      else { b.textContent=on?'Following':'Follow'; }\n      if(on) toast(b.textContent==='Joined'?'Joined the group':'Now following');\n      else b.textContent=(label==='Joined')?'Join':'Follow';\n    });\n  });\n\n  /* group join */\n  var gj=document.getElementById('grpJoin'), gl=document.getElementById('grpLeave');\n  if(gj){gj.addEventListener('click',function(){\n    if(gj.classList.contains('joined'))return;\n    gj.classList.add('joined'); gj.textContent='Joined';\n    if(gl) gl.classList.add('show');\n    toast('Joined Inya Lake Runners');\n  });}\n  if(gl){gl.addEventListener('click',function(){\n    gj.classList.remove('joined'); gj.textContent='Join group';\n    gl.classList.remove('show');\n    toast('You left the group');\n  });}\n\n  /* chat */\n  var input=document.getElementById('msgInput'),send=document.getElementById('sendBtn'),\n      stream=document.getElementById('stream'),typing=document.getElementById('typing');\n  var replies=['Nice — send me the export when it is done.','That works. Let us schedule it for 8pm.','Love it. The colour grade feels right.'];\n  var ri=0;\n  function sendMsg(){\n    var v=input.value.trim(); if(!v)return;\n    var b=document.createElement('div'); b.className='bubble out'; b.textContent=v;\n    stream.insertBefore(b,typing); input.value=''; stream.scrollTop=stream.scrollHeight;\n    typing.classList.add('show'); stream.scrollTop=stream.scrollHeight;\n    setTimeout(function(){\n      typing.classList.remove('show');\n      var r=document.createElement('div'); r.className='bubble in'; r.textContent=replies[ri++%replies.length];\n      stream.insertBefore(r,typing); stream.scrollTop=stream.scrollHeight;\n    },1200);\n  }\n  send.addEventListener('click',sendMsg);\n  input.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});\n\n  /* profile grid */\n  var sets={\n    videos:[['12.4K','52% 12%','180%'],['8.1K','30% 40%','220%'],['22.7K','70% 30%','160%'],\n            ['3.2K','45% 65%','240%'],['14.9K','60% 20%','150%'],['9.6K','38% 55%','260%']],\n    liked:[['6.4K','62% 45%','170%'],['31.2K','20% 25%','210%'],['4.8K','55% 70%','190%'],\n           ['11.5K','75% 35%','230%'],['2.9K','42% 18%','250%'],['17.3K','68% 60%','165%']],\n    saved:[['5.1K','48% 30%','200%'],['9.9K','35% 62%','175%'],['13.6K','58% 15%','245%'],\n           ['7.2K','72% 48%','155%'],['19.4K','25% 45%','215%'],['4.3K','63% 72%','185%']]\n  };\n  var grid=document.getElementById('grid');\n  function renderGrid(k){\n    grid.innerHTML='';\n    sets[k].forEach(function(it){\n      var c=document.createElement('div'); c.className='cell';\n      c.style.backgroundPosition=it[1]; c.style.backgroundSize=it[2];\n      var s=document.createElement('span'); s.textContent='\\u25B6 '+it[0]; c.appendChild(s);\n      c.addEventListener('click',function(){toast('Open video · '+it[0]+' views');});\n      grid.appendChild(c);\n    });\n  }\n  renderGrid('videos');\n\n  /* ================= v4: ranking, share, comments, notifications ================= */\n  var feedScroll=document.getElementById('feedScroll');\n  var secNote=document.getElementById('secNote');\n  var posts=Array.prototype.slice.call(feedScroll.querySelectorAll('.post'));\n  var curFilter='foryou';\n\n  function applyFeed(){\n    var list=posts.slice();\n    if(curFilter==='nearby'){\n      list=list.filter(function(p){return p.dataset.nearby==='1'||p.dataset.friend==='1';});\n      list.sort(function(a,b){\n        var fa=+a.dataset.friend, fb=+b.dataset.friend;\n        if(fa!==fb) return fb-fa;\n        return +b.dataset.score - +a.dataset.score;\n      });\n      secNote.classList.add('show');\n    }else{\n      list.sort(function(a,b){return +b.dataset.score-+a.dataset.score;});\n      secNote.classList.remove('show');\n    }\n    list.forEach(function(p){feedScroll.appendChild(p);});\n    posts.forEach(function(p){ if(list.indexOf(p)<0) p.style.display='none'; else p.style.display='';});\n    feedScroll.scrollTop=0;\n  }\n\n  document.querySelectorAll('[data-filter]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('[data-filter]').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); curFilter=el.dataset.filter; applyFeed();\n      toast(curFilter==='nearby'?'Nearby · friends first, then within 2 km':'For You · ranked by your activity');\n    });\n  });\n\n  applyFeed();\n\n  /* ---- reactions / save ---- */\n  posts.forEach(function(p){\n    p.querySelectorAll('[data-react]').forEach(function(b){\n      b.addEventListener('click',function(e){\n        e.stopPropagation();\n        var on=b.classList.toggle('on'), c=b.querySelector('.rc');\n        b.querySelector('.material-icons').textContent=on?'favorite':'favorite_border';\n        if(c){var n=parseInt(c.textContent.replace(/,/g,''),10)||0;\n          c.textContent=(n+(on?1:-1)).toLocaleString('en-US');}\n      });\n    });\n    p.querySelectorAll('[data-save]').forEach(function(b){\n      b.addEventListener('click',function(e){\n        e.stopPropagation();\n        var on=b.classList.toggle('on');\n        var ic=b.querySelector('.material-icons');\n        if(ic) ic.textContent=on?'bookmark':'bookmark_border';\n        toast(on?'Saved to your collection':'Removed from saved');\n      });\n    });\n  });\n\n  /* ---- share sheet ---- */\n  var shareSheet=document.getElementById('shareSheet'), shareUrl=document.getElementById('shareUrl'),\n      shareHint=document.getElementById('shareHint'), curPost=null;\n\n  function closeShare(){ shareSheet.classList.remove('show'); scrim.classList.remove('show'); }\n  document.getElementById('shareClose').addEventListener('click',closeShare);\n  document.getElementById('cmClose').addEventListener('click',function(){closeCm();});\n  function closeCm(){ if(cmSheet){cmSheet.classList.remove('show');} scrim.classList.remove('show'); }\n  function openShare(p){\n    curPost=p;\n    shareUrl.textContent='nexus.app/p/'+p.dataset.id;\n    shareHint.textContent='Anyone with the link can open it · public post';\n    shareSheet.classList.add('show'); scrim.classList.add('show');\n  }\n  posts.forEach(function(p){\n    p.querySelectorAll('[data-share]').forEach(function(b){\n      b.addEventListener('click',function(e){e.stopPropagation();openShare(p);});\n    });\n  });\n\n  document.getElementById('copyLink').addEventListener('click',function(){\n    var t=shareUrl.textContent, full='https://'+t;\n    function fallback(){\n      var ta=document.createElement('textarea'); ta.value=full;\n      ta.style.position='fixed'; ta.style.opacity='0';\n      document.body.appendChild(ta); ta.select();\n      try{document.execCommand('copy');}catch(e){}\n      document.body.removeChild(ta);\n    }\n    if(navigator.clipboard && window.isSecureContext){\n      navigator.clipboard.writeText(full).catch(fallback);\n    } else { fallback(); }\n    toast('Link copied · '+t);\n  });\n\n  document.querySelectorAll('[data-share-out]').forEach(function(el){\n    el.addEventListener('click',function(){\n      closeShare();\n      toast('Opening '+el.dataset.shareOut+'…');\n    });\n  });\n  document.querySelector('[data-share-save]').addEventListener('click',function(){\n    closeShare(); toast('Post saved to your collection');\n  });\n  document.querySelector('[data-share-qr]').addEventListener('click',function(){\n    toast('QR code ready to scan');\n  });\n\n  /* share to own profile -> quote repost */\n  document.querySelector('[data-share-own]').addEventListener('click',function(){\n    var author='Thiri Aung', snippet='Some evenings I just sit by the lake and let the day go.';\n    if(curPost && curPost.dataset.id==='p3'){author='Kyaw Zin';snippet='Sunset at Inya Lake — best light around 5:40pm.';}\n    if(curPost && curPost.dataset.id==='p1'){author='Sophie Jap';snippet='Editorial video — shot by the lake at golden hour.';}\n    if(curPost && curPost.dataset.id==='p5'){author='Shwe Kyaung Coffee';snippet='20% off before 10am — mohinga and iced latte.';}\n    closeShare();\n    repostTarget={author:author,snippet:snippet};\n    document.getElementById('postText').value='';\n    document.getElementById('charCount').textContent='0';\n    document.getElementById('submitPost').disabled=true;\n    document.querySelector('#sheet h3').textContent='Share to your profile';\n    document.querySelector('#sheet .hint').textContent='Add your own words — the original stays credited';\n    document.getElementById('submitPost').textContent='Share post';\n    openSheet();\n  });\n\n  /* ---- comments ---- */\n  var cmSheet=document.getElementById('cmSheet'),cmList=document.getElementById('cmList'),\n      cmInput=document.getElementById('cmInput'),cmCount=document.getElementById('cmCount'),\n      cmOn=document.getElementById('cmOn'),activePost=null;\n\n  var seed=[\n    {who:'Ko Min',ini:'KM',tx:'This is exactly what I needed to read today.',mt:'4 min'},\n    {who:'Thiri Aung',ini:'TA',tx:'Come sit by the lake with me next time.',mt:'2 min',me:true}\n  ];\n\n  function renderComments(list){\n    cmList.innerHTML='';\n    list.forEach(function(c){\n      var d=document.createElement('div'); d.className='cm';\n      d.innerHTML='<div class=\"av\">'+c.ini+'</div><div><div class=\"who\">'+c.who+\n        '</div><div class=\"tx\"></div><div class=\"mt\"><span>Reply</span><span>Like</span><span>'+c.mt+'</span></div></div>';\n      d.querySelector('.tx').textContent=c.tx;\n      cmList.appendChild(d);\n    });\n    cmCount.textContent='('+list.length+')';\n  }\n  renderComments(seed);\n\n  posts.forEach(function(p){\n    p.querySelectorAll('[data-comment]').forEach(function(b){\n      b.addEventListener('click',function(e){\n        e.stopPropagation();\n        activePost=p;\n        cmOn.textContent='Reply as @you · comments notify the author';\n        cmSheet.classList.add('show'); scrim.classList.add('show');\n        renderComments(seed);\n        setTimeout(function(){cmInput.focus();},250);\n      });\n    });\n  });\n\n  function sendComment(){\n    var v=cmInput.value.trim(); if(!v)return;\n    seed.push({who:'You',ini:'YO',tx:v,mt:'now',me:true});\n    renderComments(seed); cmInput.value=''; cmList.scrollTop=cmList.scrollHeight;\n    if(activePost){\n      var c=activePost.querySelector('[data-comment] .cc');\n      if(c){var n=parseInt(c.textContent.replace(/,/g,''),10)||0;c.textContent=(n+1).toLocaleString('en-US');}\n    }\n    toast('Reply sent · author notified');\n  }\n  document.getElementById('cmSend').addEventListener('click',sendComment);\n  cmInput.addEventListener('keydown',function(e){if(e.key==='Enter')sendComment();});\n\n  /* ---- notifications ---- */\n  var npanel=document.getElementById('npanel'), bell=document.getElementById('bell');\n  bell.addEventListener('click',function(){\n    npanel.classList.add('show');\n  });\n  document.getElementById('npClose').addEventListener('click',function(){npanel.classList.remove('show');});\n  document.getElementById('markAll').addEventListener('click',function(){\n    document.querySelectorAll('.np.unread').forEach(function(x){x.classList.remove('unread');});\n    bell.classList.add('read'); toast('All notifications read');\n  });\n  document.querySelectorAll('.np').forEach(function(n){\n    n.addEventListener('click',function(){\n      n.classList.remove('unread');\n      var k=n.dataset.np;\n      npanel.classList.remove('show');\n      if(k==='comment'){ cmSheet.classList.add('show'); scrim.classList.add('show'); renderComments(seed); }\n      else if(k==='react'){ toast('12 reactions on your feeling post'); }\n      else if(k==='share'){ toast('Nang Seng shared your post'); }\n      else if(k==='group'){ go('group'); }\n      else if(k==='biz'){ go('business'); }\n    });\n  });\n\n  /* ---- business tab ---- */\n  var btypeRow=document.getElementById('btype'), curBtype='all';\n  var origApply=applyDs;\n  function applyDsBiz(){\n    var q=(document.getElementById('dsInput').value||'').trim().toLowerCase();\n    dsCards.forEach(function(c){\n      var okTab=(c.dataset.tab===dsTab), okQ=(!q||c.textContent.toLowerCase().indexOf(q)>-1);\n      var okType=(curBtype==='all'||c.dataset.btype===curBtype);\n      c.style.display=(okTab&&okQ&&okType)?'':'none';\n    });\n    btypeRow.style.display=(dsTab==='business')?'flex':'none';\n  }\n  document.querySelectorAll('[data-dstab]').forEach(function(el){\n    el.addEventListener('click',function(){ curBtype='all';\n      document.querySelectorAll('.bt').forEach(function(x){x.classList.remove('on');});\n      document.querySelector('.bt[data-btype=\"all\"]').classList.add('on');\n      setTimeout(applyDsBiz,0);\n    });\n  });\n  document.querySelectorAll('.bt[data-btype]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('.bt').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); curBtype=el.dataset.btype; applyDsBiz();\n    });\n  });\n  document.getElementById('dsInput').addEventListener('input',applyDsBiz);\n  applyDsBiz();\n\n  /* ---- repost target ---- */\n  repostTarget=null;\n\n  document.querySelectorAll('[data-ptab]').forEach(function(el){\n    el.addEventListener('click',function(){\n      document.querySelectorAll('[data-ptab]').forEach(function(x){x.classList.remove('on');});\n      el.classList.add('on'); renderGrid(el.dataset.ptab);\n    });\n  });\n})();\n"
+}

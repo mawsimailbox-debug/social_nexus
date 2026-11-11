@@ -1,0 +1,6 @@
+coverage*.out
+*.log
+.env
+.env.*
+/api
+/migrate

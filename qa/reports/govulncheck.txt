@@ -1,0 +1,37 @@
+=== Symbol Results ===
+
+Vulnerability #1: GO-2026-6629
+    Panic parsing crafted input in x/text/secure/precis in golang.org/x/text
+  More info: https://pkg.go.dev/vuln/GO-2026-6629
+  Module: golang.org/x/text
+    Found in: golang.org/x/text@v0.24.0
+    Fixed in: golang.org/x/text@v0.41.0
+    Example traces found:
+      #1: internal/store/social.go:242:23: store.Postgres.Relation calls sql.DB.BeginTx, which eventually calls precis.Profile.Bytes
+
+Vulnerability #2: GO-2026-5970
+    Infinite loop on invalid input in golang.org/x/text
+  More info: https://pkg.go.dev/vuln/GO-2026-5970
+  Module: golang.org/x/text
+    Found in: golang.org/x/text@v0.24.0
+    Fixed in: golang.org/x/text@v0.39.0
+    Example traces found:
+      #1: internal/store/social.go:242:23: store.Postgres.Relation calls sql.DB.BeginTx, which eventually calls norm.Form.Properties
+      #2: internal/store/social.go:242:23: store.Postgres.Relation calls sql.DB.BeginTx, which eventually calls norm.Form.Span
+      #3: internal/store/social.go:242:23: store.Postgres.Relation calls sql.DB.BeginTx, which eventually calls norm.Form.Transform
+
+Vulnerability #3: GO-2026-5004
+    SQL Injection via placeholder confusion with dollar quoted string literals
+    in github.com/jackc/pgx
+  More info: https://pkg.go.dev/vuln/GO-2026-5004
+  Module: github.com/jackc/pgx/v5
+    Found in: github.com/jackc/pgx/v5@v5.7.6
+    Fixed in: github.com/jackc/pgx/v5@v5.9.2
+    Example traces found:
+      #1: internal/store/social.go:260:18: store.Postgres.Relation calls sql.Tx.Commit, which eventually calls sanitize.SanitizeSQL
+
+Your code is affected by 3 vulnerabilities from 2 modules.
+This scan also found 2 vulnerabilities in packages you import and 20
+vulnerabilities in modules you require, but your code doesn't appear to call
+these vulnerabilities.
+Use '-show verbose' for more details.

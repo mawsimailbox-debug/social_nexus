@@ -1,0 +1,5 @@
+{
+  "method": "Exact Go struct declarations serialized by standalone stdlib Go program; NOT live HTTP capture",
+  "source": "backend-go/internal/core/model.go",
+  "sha256": "50b666e49c865b0addaf33da9c8b67f439a71b5f954fb885bbc7b14b16629622"
+}
